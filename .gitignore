@@ -1,6 +1,6 @@
 *.deb
 theos
-twittercrap
+twittercrap/
 T36*
 T36headers
 *.ipa
