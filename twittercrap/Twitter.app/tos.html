@@ -1,0 +1,36 @@
+<a name="tos"></a>
+&nbsp;
+<div style="height:500px;"></div>
+&nbsp;
+<div id="tos">
+Loading...
+</div>
+
+<a name="privacy"></a>
+&nbsp;
+<div style="height:500px;"></div>
+&nbsp;
+<div id="privacy">
+Loading...
+</div>
+
+<script type="text/javascript">
+	function get(url, callback) {
+		var r = new XMLHttpRequest();
+		r.onreadystatechange = function() { callback(r); };
+		r.open("GET", url, true);
+		r.send();
+	}
+	function parse(s) { return eval("(" + s + ")"); }
+	function parsetohtml(s, key) {
+		var x = parse(s);
+		return x[key].replace("\n","<br>");
+	}
+	
+	get("http://api.twitter.com/1/tos.json", function(r) {
+		document.getElementById("tos").innerHTML = parsetohtml(r.responseText, "tos");
+	});
+	get("http://api.twitter.com/1/privacy.json", function(r) {
+		document.getElementById("privacy").innerHTML = parsetohtml(r.responseText, "privacy");
+	});
+</script>

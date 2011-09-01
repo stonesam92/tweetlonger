@@ -1,0 +1,56 @@
+hook -[TweetieWebViewController setRootURL:], set a static variable to notify TweetieOpenURL_replaceTop () that it shouldnt open a new view
+
+then in TweetieOpenURL_replaceTop () check if the variable is set, if yes, de-set it and then return; if not, call original function
+
+else; hook -[UIWebViewWebViewDelegate webView:decidePolicyForNavigationAction:request:frame:decisionListener:]
+at least log it
+
+
+parameters seem to be in registers starting at $r2 (assuming self etc are in the first registers)
+
+#0  0x00085b7c in -[TweetieWebViewController setRootURL:] ()	//
+#1  0x0005d6bc in TweetieOpenURL_replaceTop () 	//will make new view if not 		//												//prevented
+#2  0x0005d80a in TweetieOpenURL ()
+#3  0x0003a39c in -[TweetieTweetViewController webView:shouldStartLoadWithRequest:navigationType:] () //perhaps important too
+#4  0x302eee34 in -[UIWebView webView:decidePolicyForNavigationAction:request:frame:decisionListener:] ()
+#5  0x302ee054 in -[UIWebViewWebViewDelegate webView:decidePolicyForNavigationAction:request:frame:decisionListener:] () 
+										//this is a possible spot to hook without getting involved in messy C functions; need to logify this
+#6  0x31789074 in __invoking___ ()
+#7  0x3171c70c in -[NSInvocation invoke] ()
+
+setRootURL is the last chance to hook before a new view gets loaded, [UIWebViewWebViewDelegate webView:decidePolicyForNavigationAction:request:frame:decisionListener:] is the first
+
+i think the ACTUAL URL is a t.co url since twitter automatically makes it so when someone posts a link. perhaps in an earlier-stage method you, the long url is passed so that the program can decide what to do based on the url, else i'll just need to go with the t.co and check where redirects go
+
+last resort is to hook TweetieOpenURL() but this is undesirable as i can't see it's arguments etc, much more messy than pure (or mostly pure) obj-c. can get an idea of arguments by printing the objects in the registers, but stil far from pretty.
+
+need to find out what TweetieOpenURL_replaceTop calls to open new view; can't hook the function as i first hoped because it is the thing that calls setRootURL anyway so by the time the variable will have been set, TweetieOpenURL_replaceTop will already be runnign the original function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IM TOO TIRED FOR THIS SHIT
+
+hooking [TwitterStatus displayText] may be a bit helpful cos it gives us an idea of whats wanting the status's text, then we can backtrace to find out what to hook, perhaps
+
+or break elsewhere so you can see the last viewed status, then store a pointer to it in a static global?
+
+pretty sure this is the real shit -[TweetieTweetViewController setStatus:animated:direction:]
+
+k, its not :/. this may be though -[TweetieStatusListViewController _navigateToStatus:animated:]
+
+it is. make some static id's for the controller, the tweet and the other args (maybe). hook the set status method and set all those statics, then call the method on the static controller pointer when the time comes. then profit!
+

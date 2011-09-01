@@ -1,0 +1,10 @@
+Package: com.samstone.tweetlonger
+Name: TweetLonger
+Depends: mobilesubstrate
+Version: 0.0.1-60
+Architecture: iphoneos-arm
+Description: Expands Twitlonger Tweets inline!
+Maintainer: Sam Stone
+Author: Sam Stone
+Section: Tweaks
+Installed-Size: 20

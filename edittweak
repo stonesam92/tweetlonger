@@ -1,0 +1,3 @@
+#! /bin/sh
+mv tweak.xm tweak.mm
+open tweak.mm

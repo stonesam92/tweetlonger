@@ -1,0 +1,1256 @@
+Last login: Sat Aug 27 23:29:53 on ttys001
+Sams-MacBook-Pro:~ Sam$ ssh iphone
+iPhone:~ root# gdb
+GNU gdb 6.3.50.20050815-cvs (Fri May 20 08:08:42 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "--host=arm-apple-darwin9 --target=".
+(gdb) attach Twitter
+Attaching to process 1622.
+Reading symbols for shared libraries . done
+Reading symbols for shared libraries warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/Tweetie2AppDelegate.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/Tweetie2AppDelegate.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieAccountsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieAccountsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieMainViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieMainViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieAddAccountViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieAddAccountViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABCallback.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ObjC/ABCallback.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABProxy.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ObjC/ABProxy.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSArrayAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSArrayAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSDataAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSDataAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSDateAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSDateAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSDictionaryAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSDictionaryAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSNumberAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSNumberAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSObjectAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSObjectAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSStringAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSStringAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/RegexKitLite.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Regex/RegexKitLite.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/RKLMatchEnumerator.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Regex/RKLMatchEnumerator.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABHTTPMultipartFormData.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/HTTP/ABHTTPMultipartFormData.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABHTTPRequest.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/HTTP/ABHTTPRequest.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABHTTPRequest+CF.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/HTTP/ABHTTPRequest+CF.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABNetworkCache.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/HTTP/ABNetworkCache.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABKeychain.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Keychain/ABKeychain.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/SFHFKeychainUtils.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Keychain/SFHFKeychainUtils.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABXMLParser.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/XML/ABXMLParser.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABJSONParser.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/ABJSONParser.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/yajl_buf.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/yajl_buf.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/yajl_encode.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/yajl_encode.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/yajl_gen.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/yajl_gen.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/yajl_lex.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/yajl_lex.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/yajl_parser.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/yajl_parser.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/yajl.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/yajl.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABImageService.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/ABImageService.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/Tweetshrink.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/Tweetshrink.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/URLShorteningService.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/URLShorteningService.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Account.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Account.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Block.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Block.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+DirectMessage.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+DirectMessage.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Favorite.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Favorite.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Friendship.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Friendship.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Notification.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Notification.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Private.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Private.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Status.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Status.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+User.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+User.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterSearchAPI.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterSearchAPI.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/Twitter.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/Twitter.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccountStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccountStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterConcreteStatusesStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterConcreteStatusesStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterConversationStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterConversationStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterDirectMessage.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterDirectMessage.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterDirectMessage+XML.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterDirectMessage+XML.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterDirectMessageConversation.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterDirectMessageConversation.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterDirectMessageConversationManager.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterDirectMessageConversationManager.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterDirectMessagesStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterDirectMessagesStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterReceivedDirectMessagesStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterReceivedDirectMessagesStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterRepliesStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterRepliesStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterSearch.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterSearch.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterSearchStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterSearchStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterSentDirectMessagesStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterSentDirectMessagesStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatus.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterStatus.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatus+JSON.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterStatus+JSON.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatus+XML.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterStatus+XML.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatusStreamFilter.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterStatusStreamFilter.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterTimelineStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterTimelineStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUser.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUser.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUser+Avatar.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUser+Avatar.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUser+XML.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUser+XML.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserFavoritesStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserFavoritesStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserTimelineStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserTimelineStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABImage.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreGraphics/ABImage.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/CGGraphicsAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreGraphics/CGGraphicsAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/FusionAds.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/FusionAds/FusionAds.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABHUD.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABHUD.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UITextFieldAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UITextFieldAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIScreenAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UIScreenAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIAlertAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UIAlertAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABViewControllerCoder.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABViewControllerCoder.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieTweetViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieTweetViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieStatusListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieStatusListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSettingsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSettingsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieMoreViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieMoreViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieTimelineViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieTimelineViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieMentionsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieMentionsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieMessagesViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieMessagesViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSearchesViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSearchesViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/IntegrationSettingsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/IntegrationSettingsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/AdvancedSettingsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/AdvancedSettingsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/AboutSettingsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/AboutSettingsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABStaticMultiValueViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABStaticMultiValueViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABStaticTableViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABStaticTableViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABStaticTableViewElement.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABStaticTableViewElement.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UITableViewAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UITableViewAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UITableViewCellAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UITableViewCellAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIColorAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UIColorAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIViewAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UIViewAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIWebViewAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UIWebViewAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABWebViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABWebViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIBarButtonItemAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UIBarButtonItemAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABHTTPRequest+NS.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/HTTP/ABHTTPRequest+NS.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABBackgroundThread.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/HTTP/ABBackgroundThread.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSearchResultsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSearchResultsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieNearbyViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieNearbyViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABTableViewCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABTableViewCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/SMSStyleConversationCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/SMSStyleConversationCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieConversationCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieConversationCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieConversationViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieConversationViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieStatusStreamViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieStatusStreamViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatus+UIAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterStatus+UIAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieStatusCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieStatusCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/Tweetie2App.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/Tweetie2App.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieStatusListTableView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieStatusListTableView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSettings.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSettings.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatus+TweetDetailsAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterStatus+TweetDetailsAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserProfileViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserProfileViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserRecentsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserRecentsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserMentionsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserMentionsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserFavoritesViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserFavoritesViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieLinksAction.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieLinksAction.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/LinkQueueController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/LinkQueueController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/LinkQueueAddAccountViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/LinkQueueAddAccountViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterDirectMessageConversation+Email.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterDirectMessageConversation+Email.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/Tweetie+Linkification.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/Tweetie+Linkification.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieAddAccountAdvancedViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieAddAccountAdvancedViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABMutableMultiDictionary.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABMutableMultiDictionary.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieReplyChainViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieReplyChainViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserProfile4WayButtonView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserProfile4WayButtonView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/FollowCostViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/FollowCostViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieEditProfileViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieEditProfileViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/GoToUserViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/GoToUserViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserStreamViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserStreamViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieNewSearchViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieNewSearchViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetBlockerViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetBlockerViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/LocationViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/LocationViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieNavigationController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieNavigationController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieStatusCell+Drawing.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieStatusCell+Drawing.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieStatusCellContextView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieStatusCellContextView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieStatusActions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieStatusActions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserFollowersViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserFollowersViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserFollowingViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserFollowingViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieDirectMessageCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieDirectMessageCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeViewControllerAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeViewControllerAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeTitleView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeTitleView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeActionView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeActionView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUnknownTweetViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUnknownTweetViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABEmailComposer.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABEmailComposer.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABMediaChooser.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABMediaChooser.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABGeocode.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/ABGeocode.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABLanguageTranslator.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/ABLanguageTranslator.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABNetworkImageDisplayController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABNetworkImageDisplayController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABNetworkImageView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABNetworkImageView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSearchableTableViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABSearchableTableViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSingleTextFieldViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABSingleTextFieldViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/GeoRSS.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/GeoRSS.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/Instapaper.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/LinkQueue/Instapaper.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/LinkQueue.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/LinkQueue/LinkQueue.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ReadItLater.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/LinkQueue/ReadItLater.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/Tagalus.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/Tagalus.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSDateFormatterAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSDateFormatterAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSString+Emoji.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSString+Emoji.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/SMSStyleMessageCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/SMSStyleMessageCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIImageAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UIImageAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UINavigationControllerAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UINavigationControllerAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UILabelAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UILabelAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+Profile.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+Profile.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+SavedSearches.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+SavedSearches.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+Trends.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+Trends.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterComposition.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterComposition.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterCompositionAttachment.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterCompositionAttachment.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserList.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserList.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserUserList.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserUserList.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserFollowersList.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserFollowersList.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserFollowingList.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserFollowingList.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUser+JSON.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUser+JSON.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUser+NSCoding.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUser+NSCoding.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieProtocolHandling.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieProtocolHandling.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/URLShorteningService+InText.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/URLShorteningService+InText.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/FollowCost.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/FollowCost.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetBlocker.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/TweetBlocker.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSubTabBar.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABSubTabBar.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSubTabBarController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABSubTabBarController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSubTabBarItem.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABSubTabBarItem.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSubTabBarTabView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABSubTabBarTabView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ChooseUserViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ChooseUserViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ADBook.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/AddressBook/ADBook.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ADGroup.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/AddressBook/ADGroup.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ADLabelValue.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/AddressBook/ADLabelValue.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ADPerson.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/AddressBook/ADPerson.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ADRecord.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/AddressBook/ADRecord.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSString+ADAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/AddressBook/NSString+ADAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeAttachmentsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeAttachmentsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeSwitchAccountViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeSwitchAccountViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSURL+ADAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/AddressBook/NSURL+ADAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABFileManager.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABFileManager.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieDraftsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieDraftsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/BirdhouseBridge.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/BirdhouseBridge.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSound.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABSound.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABHTTPRequestAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/HTTP/ABHTTPRequestAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieWebViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieWebViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieRecentHashtagsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieRecentHashtagsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimpleSearchViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABSimpleSearchViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimplePersistentRecentSearchViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABSimplePersistentRecentSearchViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSData+Base64.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSData+Base64.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSData+CommonCrypto.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSData+CommonCrypto.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieAccountCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieAccountCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/LegalViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/LegalViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/BirdhouseBridge+TweetieAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/BirdhouseBridge+TweetieAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserBlockViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserBlockViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserPerAccountToggleViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserPerAccountToggleViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserFollowViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserFollowViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieRetweetStreamViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieRetweetStreamViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieNearbyListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieNearbyListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/GoogleStaticMap.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/GoogleStaticMap.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABDocumentDisplayController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABDocumentDisplayController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABLocation.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABLocation.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABVideoService.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/ABVideoService.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSData+Encryption.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSData+Encryption.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSURLAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSURLAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/StatusIDSync.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/StatusIDSync.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TLists.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Services/TwitterServices/TLists.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIViewController+Persistence.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/UIViewController+Persistence.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Retweet.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Retweet.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+Block.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+Block.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+Follow.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+Follow.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatus+NSCoding.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterStatus+NSCoding.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterRetweetedByMeStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterRetweetedByMeStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterRetweetedToMeStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterRetweetedToMeStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterRetweetsOfMeStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterRetweetsOfMeStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieWindow.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieWindow.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ServicesSettingsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ServicesSettingsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieManualViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieManualViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Spam.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Spam.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Lists.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Lists.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+Spam.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+Spam.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABNativesqueSingleWebViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABNativesqueSingleWebViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieConfigureGeotagViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieConfigureGeotagViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieStatusGapCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieStatusGapCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterList.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterList.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterList+XML.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterList+XML.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+Lists.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+Lists.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterListStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterListStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieListDetailsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieListDetailsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieListViewControllerController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieListViewControllerController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieNewListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieNewListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUnknownListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUnknownListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieUserListManagementViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieUserListManagementViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserListListLists.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserListListLists.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterListUserList.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterListUserList.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieListListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieListListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieListCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieListCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/FoursquareVenueViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/FoursquareVenueViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABRedirectFollower.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABRedirectFollower.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/Foursquare.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/Foursquare.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterListList.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterListList.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserListList.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserListList.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserListListFollowing.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserListListFollowing.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserListListFollows.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserListListFollows.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/WhatTheTrend.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/WhatTheTrend.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadAppDelegate.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadAppDelegate.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadSplitViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadSplitViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABMasterViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABMasterViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieLoggedOutViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieLoggedOutViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSignUpViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSignUpViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPlace.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterPlace.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterSULCategory.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterSULCategory.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSULViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSULViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSULCategoryViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSULCategoryViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TopTweetsRailView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TopTweetsRailView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSearchTopicOrNameViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSearchTopicOrNameViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSearchPeopleController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSearchPeopleController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSearchAllTweetsController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSearchAllTweetsController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSearchNearbyController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSearchNearbyController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieAbstractSearchController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieAbstractSearchController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+TopTweets.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+TopTweets.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieTopTweetsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieTopTweetsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterDuckieAccount.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterDuckieAccount.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/OAuthCore.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/OAuth/OAuthCore.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadSidebarViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadSidebarViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadTimelineViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadTimelineViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadStatusStreamViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadStatusStreamViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadStatusListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadStatusListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Signup.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Signup.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ObjcAssociatedObjects.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ObjC/ObjcAssociatedObjects.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterWelcomeViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterWelcomeViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserListFollowUnfollowButton.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterUserListFollowUnfollowButton.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABLocalization.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABLocalization.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABColumnBar.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABColumnBar.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadWebViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadWebViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABColumnItem.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABColumnItem.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+xAuth.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+xAuth.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/CALayerAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/QuartzCore/CALayerAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatusCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterStatusCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadTableView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadTableView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABUIAttributedString.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreText/ABUIAttributedString.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABUITextRenderer.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreText/ABUITextRenderer.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABUITextRenderer+Event.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreText/ABUITextRenderer+Event.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/CoreText+Additions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreText/CoreText+Additions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UIFontAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreText/UIFontAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadUserViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadUserViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadSidebarCells.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadSidebarCells.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadAccountDetailsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadAccountDetailsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadComposeViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadComposeViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABGradientView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABGradientView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadMentionsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadMentionsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadMoreViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadMoreViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadMessagesViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadMessagesViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadSearchResultsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadSearchResultsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadSearchesViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadSearchesViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterGo.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterGo.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+Push.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+Push.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Push.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Push.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UITableView+PullToRefresh.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/UITableView+PullToRefresh.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UITableView+StayOnScreen.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/UITableView+StayOnScreen.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimpleArchive.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABSimpleArchive.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSErrorAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSErrorAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimpleArchive+NSString.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABSimpleArchive+NSString.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimpleArchive+NSArray.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABSimpleArchive+NSArray.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimpleArchive+NSData.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABSimpleArchive+NSData.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimpleArchive+NSDate.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABSimpleArchive+NSDate.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimpleArchive+NSDictionary.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABSimpleArchive+NSDictionary.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSimpleArchive+NSValue.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABSimpleArchive+NSValue.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadUserTimelineViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadUserTimelineViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABRailView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABRailView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSwipeColumnViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABSwipeColumnViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadReplyChainViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadReplyChainViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadTweetViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadTweetViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStatusView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterStatusView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABTextView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreText/ABTextView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadUserFavoritesViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadUserFavoritesViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/nameprep.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ThirdParty/IFUnicodeURL/IFUnicodeURL/IDNSDK/nameprep.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/puny.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ThirdParty/IFUnicodeURL/IFUnicodeURL/IDNSDK/puny.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/toxxx.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ThirdParty/IFUnicodeURL/IFUnicodeURL/IDNSDK/toxxx.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/util.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ThirdParty/IFUnicodeURL/IFUnicodeURL/IDNSDK/util.c".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSURL+IFUnicodeURL.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ThirdParty/IFUnicodeURL/IFUnicodeURL/NSURL+IFUnicodeURL.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABMarkupTextView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/CoreText/ABMarkupTextView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadUserMentionsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadUserMentionsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadListsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadListsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadListViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadListViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadPlaceViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadPlaceViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/UITableView+PinchPreview.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/UITableView+PinchPreview.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadDirectMessageConversationViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadDirectMessageConversationViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadDirectMessageCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadDirectMessageCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABTwoFingerDragDownGestureRecognizer.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABTwoFingerDragDownGestureRecognizer.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABQuickLookController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABQuickLookController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABRowView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABRowView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABRowViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABRowViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUserRecommendation.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterUserRecommendation.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadUserRowView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadUserRowView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetiePickPlaceViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetiePickPlaceViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetiePlaceCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetiePlaceCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieAddPlaceViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieAddPlaceViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieComposeViewController+Geo.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieComposeViewController+Geo.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadLoggedOutViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadLoggedOutViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadSULSidebarCells.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadSULSidebarCells.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadPinchTopFlapView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadPinchTopFlapView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadTweetMediaViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadTweetMediaViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABVerticalFlowView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABVerticalFlowView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterSettings.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterSettings.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterEntityURL.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterEntityURL.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterEntity.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterEntity.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterEntityUserMention.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterEntityUserMention.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterEntityHashtag.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterEntityHashtag.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABHTTPRequest+Streams.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/HTTP/ABHTTPRequest+Streams.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+UserStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+UserStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterStreamEvent.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterStreamEvent.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetiePushSettingsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetiePushSettingsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterApplePushDestination.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterApplePushDestination.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAutocompleteController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterAutocompleteController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABAutocompleteTableView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABAutocompleteTableView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAutocompleteResultsController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterAutocompleteResultsController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABTextRangeTracker.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABTextRangeTracker.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadSidebarViewController+OpenURL.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadSidebarViewController+OpenURL.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABAutocompleteView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABAutocompleteView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABAutocompletePopover.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABAutocompletePopover.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/LocalAutocompleteDB.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/../../../../shared/Database/LocalAutocompleteDB.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/FMDatabase.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/fmdb/FMDatabase.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/FMDatabaseAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/fmdb/FMDatabaseAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/FMResultSet.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/fmdb/FMResultSet.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAutocompleteResultItem.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/../../../../shared/Database/TwitterAutocompleteResultItem.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABBenchmark.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABBenchmark.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/LocalAutocompleteDBBenchmark.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/LocalAutocompleteDBBenchmark.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieBenchmarkViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieBenchmarkViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/FMDatabaseABAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/../../../../shared/Database/FMDatabaseABAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterEntityPromotedContent.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterEntityPromotedContent.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+Uniquification.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+Uniquification.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Trends.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Trends.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterTrend.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterTrend.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieTrendCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieTrendCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetiePromotedButton.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetiePromotedButton.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Place.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Place.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+PromotedContent.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+PromotedContent.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+tco.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+tco.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABGPS.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABGPS.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABTableView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABTableView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABSwipeColumnScrollView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/UIKit/ABSwipeColumnScrollView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterCommonAppDelegate.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterCommonAppDelegate.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterCommonAppDelegate+Push.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterCommonAppDelegate+Push.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadApp.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadApp.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadAppDelegate+Push.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadAppDelegate+Push.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterUpdater.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterUpdater.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/main.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/main.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPadTrendRowCell.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterPadTrendRowCell.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABMutableAttributedArray.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABMutableAttributedArray.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPaginatedResults.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterPaginatedResults.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAccount+UserStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAccount+UserStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+SearchStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+SearchStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSimilarPlacesViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSimilarPlacesViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterTrendLocation.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterTrendLocation.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieDebugViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieDebugViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAggregateStatusesStream.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterAggregateStatusesStream.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterComposition+Additions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterComposition+Additions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetiePlaceSearchResultsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetiePlaceSearchResultsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieFindFriendsViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieFindFriendsViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABCompatibility.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABCompatibility.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterRelationship.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterRelationship.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TIComposeMapView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TIComposeMapView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TIComposeAttachmentsView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TIComposeAttachmentsView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TweetieSignUpCaptchaViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TweetieSignUpCaptchaViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABGenericViewController.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/ABGenericViewController.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TISendProgressView.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TISendProgressView.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Configuration.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Configuration.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterConfiguration.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterConfiguration.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterChangelog.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterChangelog.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSObject+YAJL.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/NSObject+YAJL.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/YAJLGen.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/JSON/YAJLGen.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterScribe.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterScribe.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterScribeBenchmark.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/Classes/TwitterScribeBenchmark.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterAPI+Scribe.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/API/TwitterAPI+Scribe.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/JSONKit.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/ThirdParty/JSONKit/JSONKit.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPlaceEntity.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterPlaceEntity.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/ABReachability.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/ABReachability.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterPlace+TableViewCells.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/TwitterPlace+TableViewCells.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/NSCoderAdditions.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Foundation/NSCoderAdditions.m".
+
+warning: Could not find object file "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/build/Twitter.build/Production (Release)-iphoneos/Twitter.build/Objects-normal/armv7/TwitterEntityMedia.o" - no debug information available for "/Users/bsandofsky/Documents/twitter-ios/projects/Mobile/Twitter/../../../shared/Twitter/Base/TwitterEntityMedia.m".
+
+
+...................................................................................................................................... done
+0x323db658 in mach_msg_trap ()
+(gdb) b [TweetieTweetViewController webView:shouldStartLoadWithRequest:navigationType:]
+Breakpoint 1 at 0x39db6
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x00039db6 in -[TweetieTweetViewController webView:shouldStartLoadWithRequest:navigationType:] ()
+(gdb) bt
+#0  0x00039db6 in -[TweetieTweetViewController webView:shouldStartLoadWithRequest:navigationType:] ()
+#1  0x0074fc90 in isLinkTwitLonger ()
+#2  0x302eee34 in -[UIWebView webView:decidePolicyForNavigationAction:request:frame:decisionListener:] ()
+#3  0x302ee054 in -[UIWebViewWebViewDelegate webView:decidePolicyForNavigationAction:request:frame:decisionListener:] ()
+#4  0x31789074 in __invoking___ ()
+#5  0x3171c70c in -[NSInvocation invoke] ()
+#6  0x34ba3d48 in SendMessage ()
+#7  0x34bb7474 in HandleDelegateSource ()
+#8  0x3175ba8c in __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ ()
+#9  0x3175d76e in __CFRunLoopDoSources0 ()
+#10 0x3175e50a in __CFRunLoopRun ()
+#11 0x317078ea in CFRunLoopRunSpecific ()
+#12 0x317077f2 in CFRunLoopRunInMode ()
+#13 0x33ac26ee in GSEventRunModal ()
+#14 0x33ac279a in GSEventRun ()
+#15 0x3011e2a6 in -[UIApplication _run] ()
+#16 0x3011ce16 in UIApplicationMain ()
+#17 0x000f2f5c in main ()
+#18 0x00003270 in start ()
+(gdb) b isLinkTwitLonger()
+Function "isLinkTwitLonger()" not defined.
+Make breakpoint pending on future shared library load? (y or [n]) n
+(gdb) b isLinkTwitLonger  
+Breakpoint 2 at 0x74f9a4
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x00039db6 in -[TweetieTweetViewController webView:shouldStartLoadWithRequest:navigationType:] ()
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x00039db6 in -[TweetieTweetViewController webView:shouldStartLoadWithRequest:navigationType:] ()
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x0074f9a4 in isLinkTwitLonger ()
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x00039db6 in -[TweetieTweetViewController webView:shouldStartLoadWithRequest:navigationType:] ()
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) d 1                 
+(gdb) d 2
+(gdb) b [TweetieStatusCell drawContent_simple:]
+Breakpoint 3 at 0x689f4
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x000689f4 in -[TweetieStatusCell(Drawing) drawContent_simple:]
+    ()
+(gdb) bt
+#0  0x000689f4 in -[TweetieStatusCell(Drawing) drawContent_simple:] ()
+#1  0x0005652a in -[TweetieStatusCell drawContentView:] ()
+#2  0x00051646 in -[ABTableViewCellView drawRect:] ()
+#3  0x30166d0c in -[UIView(CALayerDelegate) drawLayer:inContext:] ()
+#4  0x321e3afc in -[CALayer drawInContext:] ()
+#5  0x321e385e in backing_callback ()
+#6  0x321e3324 in CABackingStoreUpdate ()
+#7  0x321e2a9a in -[CALayer _display] ()
+#8  0x321e27a8 in -[CALayer display] ()
+#9  0x321e26f0 in CALayerDisplayIfNeeded ()
+#10 0x321e1e16 in CA::Context::commit_transaction ()
+#11 0x321e1b68 in CA::Transaction::commit ()
+#12 0x321e740c in CA::Transaction::observer_callback ()
+#13 0x3175ba48 in __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+    ()
+#14 0x3175d474 in __CFRunLoopDoObservers ()
+#15 0x3175e77a in __CFRunLoopRun ()
+#16 0x317078ea in CFRunLoopRunSpecific ()
+#17 0x317077f2 in CFRunLoopRunInMode ()
+#18 0x33ac26ee in GSEventRunModal ()
+#19 0x33ac279a in GSEventRun ()
+#20 0x3011e2a6 in -[UIApplication _run] ()
+#21 0x3011ce16 in UIApplicationMain ()
+---Type <return> to continue, or q <return> to quit---
+#22 0x000f2f5c in main ()
+#23 0x00003270 in start ()
+(gdb) d 3
+(gdb) b [ABGrowingTextView setBounds:]
+Breakpoint 4 at 0x542a0
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) d4
+Undefined command: "d4".  Try "help".
+(gdb) d 4
+(gdb) b [ABHUD initWithText:]
+Breakpoint 5 at 0x36aa6
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) d 5
+(gdb) b [ABPlainRowCell setText:]
+Breakpoint 6 at 0xd4260
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) [ABSingleTextFieldViewController footerText]
+Undefined command: "".  Try "help".
+(gdb) b [ABSingleTextFieldViewController footerText]
+Breakpoint 7 at 0x727cc
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) b [ABUITextRenderer draw]
+Breakpoint 8 at 0xb06ba
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) b [TweetieNewListViewController textField:shouldChangeCharactersInRange:replacementString:]
+Breakpoint 9 at 0x93e64
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) b [TweetieNewListViewController viewDidAppear:]
+Breakpoint 10 at 0x9421e
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) b [TweetieUserProfile4WayCornerView bigText]
+Breakpoint 11 at 0x61168
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) b [TwitterDummyStatus messageText]
+Breakpoint 12 at 0x2613c
+(gdb) c
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+0x323db658 in mach_msg_trap ()
+(gdb) b [TwitterStatus displayText]
+Breakpoint 13 at 0x2dd24
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) bt
+#0  0x0002dd24 in -[TwitterStatus displayText] ()
+#1  0x00068c9a in -[TweetieStatusCell(Drawing) drawContent_simple:] ()
+#2  0x0005652a in -[TweetieStatusCell drawContentView:] ()
+#3  0x00051646 in -[ABTableViewCellView drawRect:] ()
+#4  0x30166d0c in -[UIView(CALayerDelegate) drawLayer:inContext:] ()
+#5  0x321e3afc in -[CALayer drawInContext:] ()
+#6  0x321e385e in backing_callback ()
+#7  0x321e3324 in CABackingStoreUpdate ()
+#8  0x321e2a9a in -[CALayer _display] ()
+#9  0x321e27a8 in -[CALayer display] ()
+#10 0x321e26f0 in CALayerDisplayIfNeeded ()
+#11 0x321e1e16 in CA::Context::commit_transaction ()
+#12 0x321e1b68 in CA::Transaction::commit ()
+#13 0x321e740c in CA::Transaction::observer_callback ()
+#14 0x3175ba48 in __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+    ()
+#15 0x3175d474 in __CFRunLoopDoObservers ()
+#16 0x3175e77a in __CFRunLoopRun ()
+#17 0x317078ea in CFRunLoopRunSpecific ()
+#18 0x317077f2 in CFRunLoopRunInMode ()
+#19 0x33ac26ee in GSEventRunModal ()
+#20 0x33ac279a in GSEventRun ()
+#21 0x3011e2a6 in -[UIApplication _run] ()
+---Type <return> to continue, or q <return> to quit---
+#22 0x3011ce16 in UIApplicationMain ()
+#23 0x000f2f5c in main ()
+#24 0x00003270 in start ()
+(gdb) n
+Single stepping until exit from function -[TwitterStatus displayText], 
+which has no line number information.
+0x00068c9a in -[TweetieStatusCell(Drawing) drawContent_simple:] ()
+(gdb) 
+Single stepping until exit from function -[TweetieStatusCell(Drawing) drawContent_simple:], 
+which has no line number information.
+0x0005652a in -[TweetieStatusCell drawContentView:] ()
+(gdb) 
+Single stepping until exit from function -[TweetieStatusCell drawContentView:], 
+which has no line number information.
+0x00051646 in -[ABTableViewCellView drawRect:] ()
+(gdb) 
+Single stepping until exit from function -[ABTableViewCellView drawRect:], 
+which has no line number information.
+0x30166d0c in -[UIView(CALayerDelegate) drawLayer:inContext:] ()
+(gdb) 
+Single stepping until exit from function -[UIView(CALayerDelegate) drawLayer:inContext:], 
+which has no line number information.
+0x321e3afc in -[CALayer drawInContext:] ()
+(gdb) 
+Single stepping until exit from function -[CALayer drawInContext:], 
+which has no line number information.
+0x321e385e in backing_callback ()
+(gdb) 
+Single stepping until exit from function _ZL16backing_callbackP9CGContextPv, 
+which has no line number information.
+0x321e3324 in CABackingStoreUpdate ()
+(gdb) 
+Single stepping until exit from function CABackingStoreUpdate, 
+which has no line number information.
+c
+
+
+
+^C
+Program received signal SIGINT, Interrupt.
+0x321e3354 in CABackingStoreUpdate ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+c[Switching to process 1622 thread 0x6c03]
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) 
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) 
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) 
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+c
+[Switching to process 1622 thread 0x307]
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) c
+Continuing.
+
+Breakpoint 13, 0x0002dd24 in -[TwitterStatus displayText] ()
+(gdb) po $r0
+[TwitterStatus:0x62330b0 id:107593766143143936 text:RT @iMikeBeas: @markgurman iPhone HD Professional Service Pack 1 Snow Panther date:2011-08-28 00:22:07 +0100]
+(gdb) 

@@ -1,0 +1,156 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: helvetica, sans-serif;
+  font-size: 14pt;
+  line-height: 18pt;
+  letter-spacing: -0.05px;
+  word-wrap: break-word;
+}
+body {
+  background: transparent;
+}
+a {
+  font-weight: bold;
+  color: rgba(35, 110, 216, 1.0);
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(200,220,255,0.5);
+}
+.mention-prefix, .hashtag-prefix {
+  color: rgba(35, 110, 216, 0.5);
+}
+#container {
+  background: white;
+  padding: 15px;
+  overflow: visible;
+  margin-top: 80px;
+}
+#content {
+}
+#extraWhiteBackground {
+  background: white;
+  position: absolute;
+  top: 80px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: -1;
+}
+.noCallout {
+  -webkit-touch-callout: none !important;
+}
+#headerSpace {
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  background: transparent;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.0);
+}
+#footer{
+  text-align: left;
+  color: #aaa;
+  font-size: 11pt;
+  margin-top: 5px;
+  line-height: 15pt;
+  -webkit-user-select: none;
+}
+#footer a {
+  font-weight: bold;
+  font-size: 11pt;
+  color: #789;
+  line-height: 15pt;
+}
+#tweet-source-time {
+  font-size: 11pt;
+  line-height: 15pt;
+}
+#tweet-source-time a {
+  font-weight: normal;
+  color: #aaa;
+}
+.retweet {
+  font-size: 11pt;
+  line-height: 15pt;
+  text-align: left;
+}
+#thumbnailSection {
+  margin-top: 0px;
+  margin-bottom: 6px;
+  -webkit-user-select: none;
+}
+#thumbnailSection a.bestGuessPhoto {
+  margin-top: 6px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin-right: 5px;
+  background-color: #eee;
+  -webkit-border-radius: 6px;
+}
+#thumbnailSection a.photo {
+  display: block;
+  margin-top: 6px;
+  padding: 0px 0px 0px 0px;
+}
+#thumbnailSection a.photo img {
+  display: inline;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #eee;
+  -webkit-background-size: 16px 16px;
+}
+#replyChain {
+  margin-top: 15px;
+  text-align: right;
+  -webkit-user-select: none;
+}
+#replyChain a {
+  padding: 6px;
+  padding-bottom: 7px;
+  -webkit-border-radius: 14px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #eee), color-stop(1.0, #ccc));
+  font-size: 9pt;
+  color: #888;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 1.0);
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.0);
+}
+#replyChain a:active {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ddd), color-stop(1.0, #bbb));
+}
+.static-map {
+  background-position: top center;
+  width: 100% !important;
+  height: 100px;
+  -webkit-background-size: 16px 16px;
+  -webkit-tap-highlight-color: rgba(200,220,255,0.0)
+}
+#promoted-tweet {
+  clear: left;
+  margin: 10px 0;
+}
+#promoted-tweet a {
+    padding: 4px 5px;
+    -webkit-border-radius: 3px;
+    text-shadow: 0 1px 0 #fff;
+    color: #333;
+    font-size: 9pt;
+    font-weight: normal;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFF39B), to(#FFCA7D));
+    -webkit-box-shadow: #E4B775 0px -1px 0px inset;
+}
+@media screen and (orientation:landscape) {
+  .portrait {
+	display: none !important;
+  }
+}
+
+@media screen and (orientation:portrait) {
+  .landscape {
+	display: none !important;
+  }
+}
