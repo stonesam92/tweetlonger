@@ -54,3 +54,6 @@ k, its not :/. this may be though -[TweetieStatusListViewController _navigateToS
 
 it is. make some static id's for the controller, the tweet and the other args (maybe). hook the set status method and set all those statics, then call the method on the static controller pointer when the time comes. then profit!
 
+hook (TwitterEntitySet)entities and (NSArray)displayTextRanges to find out what they return
+
+segfault when you load a tweet after displaying a twitlonger link
