@@ -162,16 +162,26 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
 %hook TwitterStatus
 
 - (NSString *)displayText {
+    static int timesCalled = 1;
     NSLog(@"inside custom displayText");
     if (!nextExpandedText) {
         return %orig;
     }
     else {
         NSLog(@"reading from nextExpandedText");
-        NSString *temp = [nextExpandedText retain];
-        [nextExpandedText release];
-        nextExpandedText = nil;
-        return [temp autorelease];
+        NSLog(@"been called %d times", timesCalled);
+        if (timesCalled == 3) {
+            timesCalled = 1;
+            NSString *temp = [nextExpandedText retain];
+            [nextExpandedText release];
+            nextExpandedText = nil;
+            return [temp autorelease];
+        }
+        else {
+            timesCalled++;
+            return nextExpandedText;
+        }
+        
     }
 }
 
