@@ -6,3 +6,5 @@ T36headers
 *.ipa
 obj/*
 -/*
+layout/*
+layout
