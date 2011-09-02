@@ -4,5 +4,5 @@ twittercrap/
 T36*
 T36headers
 *.ipa
-obj
--
+obj/
+-/
