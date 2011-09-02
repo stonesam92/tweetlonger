@@ -54,6 +54,7 @@ NSString * parseResponse(NSString *response, responseType kind) { //takes a html
     }
     NSRange starttag = [response rangeOfString:startString], endtag = [response rangeOfString:endString];
     NSRange urlrange = {(starttag.location + starttag.length), (endtag.location - (starttag.location + starttag.length))};  //obtain the range of the resolved url
+    NSLog(@"got here, with response %@ and range:{%d,%d}", response, urlrange.location, urlrange.length);
     NSString *parsedResponse = [[NSString alloc] initWithString:[response substringWithRange:urlrange]];
     NSLog(@"PARSED %d RESPONSE OBTAINED: %@, has %i references", kind, parsedResponse, [parsedResponse retainCount]);
     
@@ -108,12 +109,11 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
             NSLog(@"function is still executing, its fine");
             [TwitLongerURL release];
             [TwitLongerResponse release];
+            return NO;
         }
     }
 
-    else {
-        NSLog(@"tweet clicked");
-    }
+    else NSLog(@"tweet clicked");
 
     return %orig;
     
@@ -143,17 +143,21 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
 
 -(void)_navigateToStatus:(id)statusToSet animated:(BOOL)isAnimated {
     if (lastUsedTweetViewController != self) {
-        NSLog(@"changing TweetViewController to %@", [self description]);
-        if (lastUsedTweetViewController != nil) [lastUsedTweetViewController release];
-        lastUsedTweetViewController = [self retain];
+        NSLog(@"changing TweetViewController from %@ to %@", [lastUsedTweetViewController description], [self description]);
+        if (lastUsedTweetViewController != nil) {
+            NSLog(@"inside if block");
+            [lastUsedTweetViewController release];//crashes here?
+            NSLog(@"old controller released...");
+        }
+        lastUsedTweetViewController = [self retain];//or here?
+        NSLog(@"new controller retained");
     }
-    if (lastUsedTwitterStatus != statusToSet) {
+    if (lastUsedTwitterStatus != statusToSet) { //or in this block
         NSLog(@"changing TwitterStatus to %@", [statusToSet description]);
         if (lastUsedTwitterStatus != nil) [lastUsedTwitterStatus release];
         lastUsedTwitterStatus = [statusToSet retain];
     }
     lastUsedIsAnimated = isAnimated;
-    %log;
     %orig;
 }
 

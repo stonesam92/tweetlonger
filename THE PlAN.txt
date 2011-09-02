@@ -54,6 +54,22 @@ k, its not :/. this may be though -[TweetieStatusListViewController _navigateToS
 
 it is. make some static id's for the controller, the tweet and the other args (maybe). hook the set status method and set all those statics, then call the method on the static controller pointer when the time comes. then profit!
 
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 hook (TwitterEntitySet)entities and (NSArray)displayTextRanges to find out what they return
 
-segfault when you load a tweet after displaying a twitlonger link
+known issues:
+crashes when you send release message to tweetieUserRecentsViewController, is a persistent object that shouldn't be dealloc'd?
+
+also the tweet's height gets fucked after you display a tl link; when you go back to the timeline view it retains its longer height
+
+handle the whole entities/displayTextRanges to stop the links begin pasted into the status
+
+parsing issues: eg. replace '<br/>' with '\n', handle usernames and links
+
+possibly control the entities/displayTextRanges to show clickable links/usernames
