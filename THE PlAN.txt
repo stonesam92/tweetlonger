@@ -54,8 +54,14 @@ k, its not :/. this may be though -[TweetieStatusListViewController _navigateToS
 
 it is. make some static id's for the controller, the tweet and the other args (maybe). hook the set status method and set all those statics, then call the method on the static controller pointer when the time comes. then profit!
 
+crashes when you dealloc the UserRecentsblablabla, but not if it gets dealloc'd at the correct time, only when you do it artificially. must do some thigns in it's dealloc that talk to objects that have already been dealloc'd at the 'proper time' hence the segfault. maybe just don't allow the USerRecentsControllers to be held statically, add that as an if clause when you go to set the static variables
 
+4 types of tweetviewcontroller: for search, replychains, users, and timeline
 
+timeline- can be dealloc'd whenever you want; they're safe to play with
+replychains - also appear to be safe
+search results - safe too
+user timeline - seem to be the only dangerous one that can be dealloc'd later than the original code
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

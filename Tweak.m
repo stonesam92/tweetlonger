@@ -142,16 +142,21 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
 %hook TweetieStatusListViewController
 
 -(void)_navigateToStatus:(id)statusToSet animated:(BOOL)isAnimated {
-    if (lastUsedTweetViewController != self) {
+    
+    if (![self isKindOfClass:[%c(TweetieUserRecentsViewController) class]] &&lastUsedTweetViewController != self) {
+        
         NSLog(@"changing TweetViewController from %@ to %@", [lastUsedTweetViewController description], [self description]);
-        if (lastUsedTweetViewController != nil) {
+        if (lastUsedTweetViewController !=nil) {
             NSLog(@"inside if block");
+            NSLog(@"old controller has retain count %d", [lastUsedTweetViewController retainCount]);
             [lastUsedTweetViewController release];//crashes here?
             NSLog(@"old controller released...");
         }
         lastUsedTweetViewController = [self retain];//or here?
         NSLog(@"new controller retained");
     }
+    if (![self isKindOfClass:[%c(TweetieUserRecentsViewController) class]])
+        NSLog(@"self is a user controller, skipping");
     if (lastUsedTwitterStatus != statusToSet) { //or in this block
         NSLog(@"changing TwitterStatus to %@", [statusToSet description]);
         if (lastUsedTwitterStatus != nil) [lastUsedTwitterStatus release];

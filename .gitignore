@@ -8,3 +8,6 @@ obj/*
 -/*
 layout/*
 layout
+.theos/
+.DS_Store
+_/
