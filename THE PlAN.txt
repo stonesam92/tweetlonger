@@ -79,3 +79,8 @@ handle the whole entities/displayTextRanges to stop the links begin pasted into 
 parsing issues: eg. replace '<br/>' with '\n', handle usernames and links
 
 possibly control the entities/displayTextRanges to show clickable links/usernames
+
+//-----------------------------------------------------------------------------------------
+the four things to parse are:
+
+newlines -- 	
