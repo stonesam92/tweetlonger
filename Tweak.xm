@@ -81,7 +81,7 @@ void writeChangesToStatus(char *status, entityInfo *entityList) {
     while (entityList != NULL) {
         NSLog(@"about to replace from index %d to %d with %s", entityList->location, entityList->length, entityList->replacementString);
         int i, j;                   //counters for the two for loops coming up
-        for (i=0; i < entityList->location; i++) {
+        for (i=0; i + s2offset < entityList->location; i++) {
             *(status+i+s1offset) = *(status + s2offset + i);
         }
         NSLog(@"about to enter second loop, i is at %d", i);
