@@ -46,7 +46,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     
         
     char *locationOfUN = NULL, parsedOutput[25];
-    int lengthOfUN, lengthofWholeString;
+    int lengthOfUN;
     
     locationOfUN = strstr(toParse, "class=\"twitter-anywhere-user\">");
     if (!locationOfUN) {
@@ -72,6 +72,39 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     }
 
     return parseUserNames(locationOfUN + entityItem->length, entityItem, entityItem->next, entityItem->location + entityItem->length); 
+    
+}
+
+entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *entityItem, int searchedSoFar) {
+    
+    
+    char *locationOfUN = NULL, parsedOutput[30];
+    int lengthOfUN;
+    
+    locationOfUN = strstr(toParse, "class=\"twitter-anywhere-user\">");
+    if (!locationOfUN) {
+        NSLog(@"about to free");
+        free(entityItem);
+        NSLog(@"freed");
+        entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
+        return lastItem;
+    }
+    
+    sscanf(locationOfUN, "class=\"twitter-anywhere-user\">%[^<]</a>", parsedOutput);
+    NSLog(@"parsed username: %s", parsedOutput);
+    
+    lengthOfUN = strlen(parsedOutput);
+    locationOfUN = locationOfUN - (29+(lengthOfUN));
+    entityItem->location = (locationOfUN + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
+    strcpy(entityItem->replacementString, parsedOutput);
+    entityItem->length = lengthofWholeString = ((2*lengthOfUN) +63);
+    entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
+    if (!entityItem) {
+        NSLog(@"malloc failed. shiiiiiiit");
+        return NULL;
+    }
+    
+    return parseHashtags(locationOfUN + entityItem->length, entityItem, entityItem->next, entityItem->location + entityItem->length); 
     
 }
 
