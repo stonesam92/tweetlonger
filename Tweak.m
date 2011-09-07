@@ -17,13 +17,19 @@
 
 #pragma mark constants
 
-#define UNSHORTME           @"http://api.unshort.me/?r=%@&t=xml"
-#define USMRESPONSESTART    @"<resolvedURL>"
-#define USMRESPONSEEND      @"</resolvedURL>"
-#define TLRESPONSESTART     @"<article>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t<p>\n\t\t\t\t\t\t"
-#define TLRESPONSEEND       @"\t\t\t\t\t\t\n\t\t\t\t\t\t<span id=\"postactions\">"
-#define USMRESPONSETYPE     0
-#define TLRESPONSETYPE      1
+#define UNSHORTME               @"http://api.unshort.me/?r=%@&t=xml"
+#define USMRESPONSESTART        @"<resolvedURL>"
+#define USMRESPONSEEND          @"</resolvedURL>"
+#define TLRESPONSESTART         @"<article>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t<p>\n\t\t\t\t\t\t"
+#define TLRESPONSEEND           @"\t\t\t\t\t\t\n\t\t\t\t\t\t<span id=\"postactions\">"
+#define USERNAMEUNIQUESTRING    "class=\"twitter-anywhere-user\">"
+#define USERNAMESCANSTRING      "class=\"twitter-anywhere-user\">%[^<]</a>"
+#define HASHTAGUNIQUESTRING     "<a href=\"http://search.twitter.com/search?q=%23"
+#define HASHTAGSCANSTRING       "<a href=\"http://search.twitter.com/search?q=%%23%[^\"]\">"
+#define USERNAMEBASELENGTH      63
+#define HASHTAGBASELENGTH       52
+#define USMRESPONSETYPE         0
+#define TLRESPONSETYPE          1
 
 typedef struct _entityInfo {
     int location;
@@ -47,7 +53,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     char *locationOfUN = NULL, parsedOutput[25];
     int lengthOfUN;
     
-    locationOfUN = strstr(toParse, "class=\"twitter-anywhere-user\">");
+    locationOfUN = strstr(toParse, USERNAMEUNIQUESTRING);
     if (!locationOfUN) {
         NSLog(@"about to free");
         free(entityItem);
@@ -56,14 +62,14 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
         return lastItem;
     }
     
-    sscanf(locationOfUN, "class=\"twitter-anywhere-user\">%[^<]</a>", parsedOutput);
+    sscanf(locationOfUN, USERNAMESCANSTRING, parsedOutput);
     NSLog(@"parsed username: %s", parsedOutput);
     
     lengthOfUN = strlen(parsedOutput);
     locationOfUN = locationOfUN - (29+(lengthOfUN));
     entityItem->location = (locationOfUN + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
     strcpy(entityItem->replacementString, parsedOutput);
-    entityItem->length = ((2*lengthOfUN) +63);
+    entityItem->length = ((2*lengthOfUN) + USERNAMEBASELENGTH);
     entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
     if (!entityItem) {
         NSLog(@"malloc failed. shiiiiiiit");
@@ -80,7 +86,7 @@ entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *enti
     char *locationOfHT = NULL, parsedOutput[30] = "#";
     int lengthOfHT;
     
-    locationOfHT = strstr(toParse, "<a href=\"http://search.twitter.com/search?q=%23");
+    locationOfHT = strstr(toParse, HASHTAGUNIQUESTRING);
     NSLog(@"location of hashtag is %s, toparse is %s", locationOfHT, toParse);
     if (!locationOfHT) {
         
@@ -91,14 +97,13 @@ entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *enti
         return lastItem;
     }
     
-    sscanf(locationOfHT, "<a href=\"http://search.twitter.com/search?q=%%23%[^\"]\">", parsedOutput+1);
+    sscanf(locationOfHT, HASHTAGSCANSTRING, parsedOutput+1); // parsedOutput+1 so the '#' already in the buffer isn't overwritten
     NSLog(@"parsed hashtag: %s", parsedOutput);
     
     lengthOfHT = strlen(parsedOutput);
-    //locationOfHT = locationOfHT - (29+(lengthOfUN));
     entityItem->location = (locationOfHT + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
     strcpy(entityItem->replacementString, parsedOutput);
-    entityItem->length = ((2*lengthOfHT) +52);
+    entityItem->length = ((2*lengthOfHT) + HASHTAGBASELENGTH);
     entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
     if (!entityItem) {
         NSLog(@"malloc failed. shiiiiiiit");
