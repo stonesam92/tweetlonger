@@ -1,8 +1,7 @@
 /*-------------------------------------------------------------------------------------------------------------------------- 
- 99 lines of code and a GOTO ain't one!
  TweetLonger by Sam Stone, created 08/2011. All rights reserved.
  
- Expands TwitLonger (also deck.ly soon) links inline rather than opening up a browser 
+ Expands TwitLonger (also deck.ly soon) links in-line rather than opening up a browser 
  window and wasting data and time loading the images, ads etc.
  
  compiles with theos. (obviously)
@@ -46,7 +45,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     
         
     char *locationOfUN = NULL, parsedOutput[25];
-    int lengthOfUN, lengthofWholeString;
+    int lengthOfUN;
     
     locationOfUN = strstr(toParse, "class=\"twitter-anywhere-user\">");
     if (!locationOfUN) {
@@ -64,7 +63,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     locationOfUN = locationOfUN - (29+(lengthOfUN));
     entityItem->location = (locationOfUN + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
     strcpy(entityItem->replacementString, parsedOutput);
-    entityItem->length = lengthofWholeString = ((2*lengthOfUN) +63);
+    entityItem->length = ((2*lengthOfUN) +63);
     entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
     if (!entityItem) {
         NSLog(@"malloc failed. shiiiiiiit");
@@ -72,6 +71,41 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     }
 
     return parseUserNames(locationOfUN + entityItem->length, entityItem, entityItem->next, entityItem->location + entityItem->length); 
+    
+}
+
+entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *entityItem, int searchedSoFar) {
+    
+    
+    char *locationOfHT = NULL, parsedOutput[30] = "#";
+    int lengthOfHT;
+    
+    locationOfHT = strstr(toParse, "<a href=\"http://search.twitter.com/search?q=%23");
+    NSLog(@"location of hashtag is %s, toparse is %s", locationOfHT, toParse);
+    if (!locationOfHT) {
+        
+        NSLog(@"about to free");
+        free(entityItem);
+        NSLog(@"freed");
+        //entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
+        return lastItem;
+    }
+    
+    sscanf(locationOfHT, "<a href=\"http://search.twitter.com/search?q=%%23%[^\"]\">", parsedOutput+1);
+    NSLog(@"parsed hashtag: %s", parsedOutput);
+    
+    lengthOfHT = strlen(parsedOutput);
+    //locationOfHT = locationOfHT - (29+(lengthOfUN));
+    entityItem->location = (locationOfHT + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
+    strcpy(entityItem->replacementString, parsedOutput);
+    entityItem->length = ((2*lengthOfHT) +52);
+    entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
+    if (!entityItem) {
+        NSLog(@"malloc failed. shiiiiiiit");
+        return NULL;
+    }
+    
+    return parseHashtags(locationOfHT + entityItem->length, entityItem, entityItem->next, entityItem->location + entityItem->length); 
     
 }
 
@@ -116,7 +150,13 @@ NSString * parseStatusHTML(NSString * input) {
     entityInfo *entitiesList, *endOfTail;
     char *toParse = (char*) [input UTF8String];
     entitiesList = (entityInfo *) malloc(sizeof(entityInfo));
-    endOfTail = parseUserNames(toParse, NULL, entitiesList, 0);
+    endOfTail    = parseUserNames(toParse, NULL, entitiesList, 0);
+    if (endOfTail != NULL) {
+        endOfTail->next = NULL;
+        writeChangesToStatus(toParse, entitiesList);
+    }
+    entitiesList = (entityInfo *) malloc(sizeof(entityInfo));
+    endOfTail    = parseHashtags(toParse, NULL, entitiesList, 0);
     if (endOfTail != NULL) {
         endOfTail->next = NULL;
         writeChangesToStatus(toParse, entitiesList);

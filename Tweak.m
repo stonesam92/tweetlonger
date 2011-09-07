@@ -63,7 +63,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     locationOfUN = locationOfUN - (29+(lengthOfUN));
     entityItem->location = (locationOfUN + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
     strcpy(entityItem->replacementString, parsedOutput);
-    entityItem->length = lengthofWholeString = ((2*lengthOfUN) +63);
+    entityItem->length = ((2*lengthOfUN) +63);
     entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
     if (!entityItem) {
         NSLog(@"malloc failed. shiiiiiiit");
@@ -77,11 +77,12 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
 entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *entityItem, int searchedSoFar) {
     
     
-    char *locationOfHT = NULL, parsedOutput[30];
+    char *locationOfHT = NULL, parsedOutput[30] = "#";
     int lengthOfHT;
     
-    locationOfHT = strstr(toParse, "<a href=\"http://search.twitter.com/search?q%23");
-    if (!locationOfUN) {
+    locationOfHT = strstr(toParse, "<a href=\"http://search.twitter.com/search?q=%23");
+    NSLog(@"location of hashtag is %s, toparse is %s", locationOfHT, toParse);
+    if (!locationOfHT) {
         
         NSLog(@"about to free");
         free(entityItem);
@@ -90,21 +91,21 @@ entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *enti
         return lastItem;
     }
     
-    sscanf(locationOfUN, "<a href=\"http://search.twitter.com/search?q%23%[^\"]\">", parsedOutput);
+    sscanf(locationOfHT, "<a href=\"http://search.twitter.com/search?q=%%23%[^\"]\">", parsedOutput+1);
     NSLog(@"parsed hashtag: %s", parsedOutput);
     
     lengthOfHT = strlen(parsedOutput);
     //locationOfHT = locationOfHT - (29+(lengthOfUN));
     entityItem->location = (locationOfHT + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
     strcpy(entityItem->replacementString, parsedOutput);
-    entityItem->length = lengthofWholeString = ((2*lengthOfHT) +53);
+    entityItem->length = ((2*lengthOfHT) +52);
     entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
     if (!entityItem) {
         NSLog(@"malloc failed. shiiiiiiit");
         return NULL;
     }
     
-    return parseHashtags(locationOfUN + entityItem->length, entityItem, entityItem->next, entityItem->location + entityItem->length); 
+    return parseHashtags(locationOfHT + entityItem->length, entityItem, entityItem->next, entityItem->location + entityItem->length); 
     
 }
 
@@ -156,6 +157,10 @@ NSString * parseStatusHTML(NSString * input) {
     }
     entitiesList = (entityInfo *) malloc(sizeof(entityInfo));
     endOfTail    = parseHashtags(toParse, NULL, entitiesList, 0);
+    if (endOfTail != NULL) {
+        endOfTail->next = NULL;
+        writeChangesToStatus(toParse, entitiesList);
+    }
     
     return [NSString stringWithUTF8String:toParse];
     
