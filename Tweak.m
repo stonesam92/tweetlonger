@@ -34,7 +34,7 @@
 typedef struct _entityInfo {
     int location;
     int length;
-    char replacementString[25];
+    char *replacementString;
     struct _entityInfo *next;
 } entityInfo;
 
@@ -68,6 +68,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     lengthOfUN = strlen(parsedOutput);
     locationOfUN = locationOfUN - (29+(lengthOfUN));
     entityItem->location = (locationOfUN + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
+    entityItem->replacementString = (char *) malloc(lengthOfUN + 1); //plus one byte for the null terminator
     strcpy(entityItem->replacementString, parsedOutput);
     entityItem->length = ((2*lengthOfUN) + USERNAMEBASELENGTH);
     entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
@@ -102,6 +103,7 @@ entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *enti
     
     lengthOfHT = strlen(parsedOutput);
     entityItem->location = (locationOfHT + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
+    entityItem->replacementString = (char *) malloc(lengthOfHT + 1); //plus one for the '\0' terminator
     strcpy(entityItem->replacementString, parsedOutput);
     entityItem->length = ((2*lengthOfHT) + HASHTAGBASELENGTH);
     entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
