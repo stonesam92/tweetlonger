@@ -233,6 +233,8 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
 
 %hook TweetieTweetViewController
 - (BOOL)webView:(id)webView shouldStartLoadWithRequest:(id)request navigationType:(unsigned int)navigationType {
+    
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
     NSURL *linkURL = [request URL];
     if ([[[linkURL description] substringToIndex:7] isEqualToString:@"http://"]) { //a non-internal link has been clicked
@@ -260,12 +262,16 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
             
             [TwitLongerURL release];
             [TwitLongerResponse release];
+            [pool drain];
             return NO;
         }
     }
 
-    else NSLog(@"tweet clicked");
-
+    else {
+        NSLog(@"tweet clicked");
+    }
+    
+    [pool drain];
     return %orig;
     
 
