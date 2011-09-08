@@ -44,9 +44,10 @@ typedef struct _entityInfo {
 typedef int responseType;
 
 static NSString *nextExpandedText = nil;
-static id lastUsedTweetViewController = nil;
-static id lastUsedTwitterStatus = nil;
-static BOOL lastUsedIsAnimated = NULL;
+static id       lastUsedTweetViewController = nil;
+static id       lastUsedTwitterStatus = nil;
+static BOOL     lastUsedIsAnimated = NO;
+static BOOL     overrideEntities = NO;
 
 #pragma mark Parsing Functions
 
@@ -360,7 +361,8 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
     else {
         NSLog(@"reading from nextExpandedText");
         NSLog(@"been called %d times", timesCalled);
-        if (timesCalled == 3) {
+        overrideEntities = YES;
+        if (timesCalled == 2) {                   // perhaps change this back to 3?
             timesCalled = 1;
             NSString *temp = [nextExpandedText retain];
             [nextExpandedText release];
@@ -373,6 +375,14 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
         }
         
     }
+}
+
+- (NSArray *)displayTextRanges {
+    NSLog(@"inside custom displayTextRanges");
+    if (!overrideEntities)
+        return %orig;
+    overrideEntities = NO;
+    return [NSArray array];
 }
 
 %end

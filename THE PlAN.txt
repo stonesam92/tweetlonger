@@ -84,3 +84,32 @@ possibly control the entities/displayTextRanges to show clickable links/username
 the four things to parse are:
 
 newlines -- 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+return [[NSArray alloc] init] twice on -[TwitterStatus displayTextRanges] to kill all entities
