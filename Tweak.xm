@@ -4,7 +4,7 @@
  Expands TwitLonger (also deck.ly soon) links in-line rather than opening up a browser 
  window and wasting data and time loading the images, ads etc.
  
- compiles with theos. (obviously)
+ builds with theos. (obviously)
  
 --------------------------------------------------------------------------------------------------------------------------*/
 
@@ -26,8 +26,11 @@
 #define USERNAMESCANSTRING      "class=\"twitter-anywhere-user\">%[^<]</a>"
 #define HASHTAGUNIQUESTRING     "<a href=\"http://search.twitter.com/search?q=%23"
 #define HASHTAGSCANSTRING       "<a href=\"http://search.twitter.com/search?q=%%23%[^\"]\">"
+#define LINKUNIQUESTRING        "<a href=\""
+#define LINKSCANSTRING          "<a href=\"%[^\"]\""
 #define USERNAMEBASELENGTH      63
 #define HASHTAGBASELENGTH       52
+#define LINKBASELENGTH          15
 #define USMRESPONSETYPE         0
 #define TLRESPONSETYPE          1
 
@@ -58,7 +61,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
         NSLog(@"about to free");
         free(entityItem);
         NSLog(@"freed");
-        entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
+//        entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
         return lastItem;
     }
     
@@ -94,7 +97,7 @@ entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *enti
         NSLog(@"about to free");
         free(entityItem);
         NSLog(@"freed");
-        //entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
+//        entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
         return lastItem;
     }
     
@@ -113,6 +116,41 @@ entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *enti
     }
     
     return parseHashtags(locationOfHT + entityItem->length, entityItem, entityItem->next, entityItem->location + entityItem->length); 
+    
+}
+
+entityInfo * parseLinks(char *toParse, entityInfo *lastItem, entityInfo *entityItem, int searchedSoFar) {
+    
+    
+    char *locationOfURL = NULL, parsedOutput[150];
+    int lengthOfURL;
+    
+    locationOfURL = strstr(toParse, LINKUNIQUESTRING);
+    NSLog(@"location of link is %s, toparse is %s", locationOfURL, toParse);
+    if (!locationOfURL) {
+        
+        NSLog(@"about to free");
+        free(entityItem);
+        NSLog(@"freed");
+        //        entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
+        return lastItem;
+    }
+    
+    sscanf(locationOfURL, LINKSCANSTRING, parsedOutput); 
+    NSLog(@"parsed link: %s", parsedOutput);
+    
+    lengthOfURL = strlen(parsedOutput);
+    entityItem->location = (locationOfURL + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
+    entityItem->replacementString = (char *) malloc(lengthOfURL + 1); //plus one for the '\0' terminator
+    strcpy(entityItem->replacementString, parsedOutput);
+    entityItem->length = ((2*lengthOfURL) + LINKBASELENGTH);
+    entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
+    if (!entityItem) {
+        NSLog(@"malloc failed. shiiiiiiit");
+        return NULL;
+    }
+    
+    return parseLinks(locationOfURL + entityItem->length, entityItem, entityItem->next, entityItem->location + entityItem->length); 
     
 }
 
@@ -164,6 +202,12 @@ NSString * parseStatusHTML(NSString * input) {
     }
     entitiesList = (entityInfo *) malloc(sizeof(entityInfo));
     endOfTail    = parseHashtags(toParse, NULL, entitiesList, 0);
+    if (endOfTail != NULL) {
+        endOfTail->next = NULL;
+        writeChangesToStatus(toParse, entitiesList);
+    }
+    entitiesList = (entityInfo *) malloc(sizeof(entityInfo));
+    endOfTail    = parseLinks(toParse, NULL, entitiesList, 0);
     if (endOfTail != NULL) {
         endOfTail->next = NULL;
         writeChangesToStatus(toParse, entitiesList);
