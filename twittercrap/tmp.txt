@@ -1,9 +1,0 @@
-%hook TweetieLinksAction
-+ (id)actionController { %log; return %orig; }
-- (void)dealloc { %log; %orig; }
-- (void)specificLinkAction:(id)arg1 { %log; %orig; }
-- (void)expandURLResponse:(id)arg1 info:(id)arg2 { %log; %orig; }
-- (void)linkAction:(id)arg1 { %log; %orig; }
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2 { %log; %orig; }
-- (void)showFromNavigationController:(id)arg1 { %log; %orig; }
-%end
