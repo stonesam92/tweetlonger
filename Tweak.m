@@ -16,7 +16,7 @@
 #include    <stdio.h>
 #include    <string.h>
 
-#pragma mark constants
+#pragma mark defines
 
 #define UNSHORTME               @"http://api.unshort.me/?r=%@&t=xml"
 #define USMRESPONSESTART        @"<resolvedURL>"
@@ -34,6 +34,9 @@
 #define LINKBASELENGTH          15
 #define USMRESPONSETYPE         0
 #define TLRESPONSETYPE          1
+#define NOTREACHABLE            0
+#define REACHABLEVIAWIFI        1
+#define REACHABLEVIAWWAN        2
 
 typedef struct _entityInfo {
     int location;
@@ -44,7 +47,7 @@ typedef struct _entityInfo {
 
 typedef int responseType;
 
-static NSMutableDictionary  *cachedStatuses             = nil; //maybe bad capacity?
+static NSMutableDictionary  *cachedStatuses             = nil; 
 static NSString             *nextExpandedText           = nil;
 static id                   lastUsedTweetViewController = nil;
 static id                   lastUsedTwitterStatus       = nil;
@@ -206,18 +209,21 @@ NSString * parseStatusHTML(NSString * input) {
         endOfTail->next = NULL;
         writeChangesToStatus(toParse, entitiesList);
     }
+    NSLog(@"wrote usernames back to status");
     entitiesList = (entityInfo *) malloc(sizeof(entityInfo));
     endOfTail    = parseHashtags(toParse, NULL, entitiesList, 0);
     if (endOfTail != NULL) {
         endOfTail->next = NULL;
         writeChangesToStatus(toParse, entitiesList);
     }
+    NSLog(@"wrote hashtags back to status");
     entitiesList = (entityInfo *) malloc(sizeof(entityInfo));
     endOfTail    = parseLinks(toParse, NULL, entitiesList, 0);
     if (endOfTail != NULL) {
         endOfTail->next = NULL;
         writeChangesToStatus(toParse, entitiesList);
     }
+    NSLog(@"wrote links back to status");
     
     return [NSString stringWithUTF8String:toParse];
     
@@ -295,9 +301,19 @@ id isLinkTwitLonger(NSString *shortURL) {
     NSURL *linkURL = [request URL];
     if ([[[linkURL description] substringToIndex:7] isEqualToString:@"http://"]) { //a non-internal link has been clicked
         
+        [nextExpandedText release];
+        
+        if (nextExpandedText = [cachedStatuses objectForKey:request]) {
+            NSLog(@"status is already cached: %@", nextExpandedText);
+            [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
+            [pool drain];
+            return NO;
+        }
+        
         int networkStatus = (int) [[%c(ABReachability) sharedReachability] currentReachabilityStatus];
         switch (networkStatus) {
-            case 0: {
+                
+            case NOTREACHABLE: {
                 NSLog(@"no internet connection detected");
                 UIAlertView *internetWarning = [[UIAlertView alloc] initWithTitle:@"No Internet Connection Available" 
                                                                           message:@"Could not load link" 
@@ -310,7 +326,7 @@ id isLinkTwitLonger(NSString *shortURL) {
                 break;
             }
             
-            case 1: {
+            case REACHABLEVIAWIFI: {
                 NSLog(@"link clicked: %@", [linkURL description]);
                 NSString *TwitLongerLink = nil;
                 
@@ -325,14 +341,18 @@ id isLinkTwitLonger(NSString *shortURL) {
                     NSLog(@"got response %@", TwitLongerResponse);
                     statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
                     statusHTML = [parseStatusHTML(statusHTML) retain];
-                    [nextExpandedText release];
                     nextExpandedText = [statusHTML retain];
+                    
+                    if (!cachedStatuses) {
+                        cachedStatuses = [[NSMutableDictionary alloc] initWithCapacity:1];
+                        NSLog(@"just made the cached dictionary");
+                    }
+                    [cachedStatuses setObject:nextExpandedText forKey:request];
+                    NSLog(@"dictionary of cached status is now %@", cachedStatuses);
                     
                     NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
                     
                     [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
-                    
-                    NSLog(@"function is still executing, its fine");
                     
                     [TwitLongerURL release];
                     [TwitLongerResponse release];
@@ -343,10 +363,12 @@ id isLinkTwitLonger(NSString *shortURL) {
                 }
             }
             
-            case 2: {
+            case REACHABLEVIAWWAN: {
                 NSLog(@"no wifi connection");
                 return %orig;
                 break;
+                // should put this case above the wifi one. then don't break so it falls through. set up the activity indicator in here then let it fall through to the asynchronous 
+                // nsurlconnection. 
             }
         }
     }
