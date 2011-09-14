@@ -12,6 +12,7 @@
 
 
 #import     <Foundation/Foundation.h>
+#import     <UIKit/UIKit.h>
 #include    <stdio.h>
 #include    <string.h>
 
@@ -43,11 +44,12 @@ typedef struct _entityInfo {
 
 typedef int responseType;
 
-static NSString *nextExpandedText = nil;
-static id       lastUsedTweetViewController = nil;
-static id       lastUsedTwitterStatus = nil;
-static BOOL     lastUsedIsAnimated = NO;
-static BOOL     overrideEntities = NO;
+static NSMutableDictionary  *cachedStatuses             = nil; //maybe bad capacity?
+static NSString             *nextExpandedText           = nil;
+static id                   lastUsedTweetViewController = nil;
+static id                   lastUsedTwitterStatus       = nil;
+static BOOL                 lastUsedIsAnimated          = YES;
+static BOOL                 overrideEntities            = NO;
 
 #pragma mark Parsing Functions
 
@@ -62,7 +64,6 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
         NSLog(@"about to free");
         free(entityItem);
         NSLog(@"freed");
-//        entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
         return lastItem;
     }
     
@@ -72,7 +73,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     lengthOfUN = strlen(parsedOutput);
     locationOfUN = locationOfUN - (29+(lengthOfUN));
     entityItem->location = (locationOfUN + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
-    entityItem->replacementString = (char *) malloc(lengthOfUN + 1); //plus one byte for the null terminator
+    entityItem->replacementString = (char *) malloc(lengthOfUN + 1); //plus one byte for the '\0'
     strcpy(entityItem->replacementString, parsedOutput);
     entityItem->length = ((2*lengthOfUN) + USERNAMEBASELENGTH);
     entityItem->next = (entityInfo *) malloc(sizeof(entityInfo));
@@ -92,13 +93,12 @@ entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *enti
     int lengthOfHT;
     
     locationOfHT = strstr(toParse, HASHTAGUNIQUESTRING);
-    NSLog(@"location of hashtag is %s, toparse is %s", locationOfHT, toParse);
+    NSLog(@"location of hashtag is %s, toParse is %s", locationOfHT, toParse);
     if (!locationOfHT) {
         
         NSLog(@"about to free");
         free(entityItem);
         NSLog(@"freed");
-//        entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
         return lastItem;
     }
     
@@ -133,7 +133,6 @@ entityInfo * parseLinks(char *toParse, entityInfo *lastItem, entityInfo *entityI
         NSLog(@"about to free");
         free(entityItem);
         NSLog(@"freed");
-        //        entityItem = NULL; //doesn't actually NULL the original pointer, just the local reference :/
         return lastItem;
     }
     
@@ -193,8 +192,14 @@ void writeChangesToStatus(char *status, entityInfo *entityList) {
 
 
 NSString * parseStatusHTML(NSString * input) {
+    
+    /*
+     Needs to be change to only make a max of 2 passes of writeChanges by changing hashtag func
+     */
+    
     entityInfo *entitiesList, *endOfTail;
     char *toParse = (char*) [input UTF8String];
+    
     entitiesList = (entityInfo *) malloc(sizeof(entityInfo));
     endOfTail    = parseUserNames(toParse, NULL, entitiesList, 0);
     if (endOfTail != NULL) {
@@ -237,14 +242,15 @@ NSString * parseResponse(NSString *response, responseType kind) { //takes a html
     
     NSLog(@"got here, with response %@ and range:{%d,%d}", response, urlrange.location, urlrange.length);
     
-    NSString *parsedResponse = [[NSString alloc] initWithString:[response substringWithRange:urlrange]];                    //could this be better done with sscanf?
+    NSString *parsedResponse = [[NSString alloc] initWithString:[response substringWithRange:urlrange]];                    
     
     NSLog(@"PARSED %d RESPONSE OBTAINED: %@, has %i references", kind, parsedResponse, [parsedResponse retainCount]);
     
     return [parsedResponse autorelease];
 }
 
-id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
+id isLinkTwitLonger(NSString *shortURL) {
+    
     NSURL *USMRequestURL = [[NSURL alloc] initWithString:[NSString stringWithFormat:UNSHORTME, shortURL]];                     //combines unshortme url with the given short url to expand
     NSString *USMResponse = [[NSString alloc] initWithContentsOfURL:USMRequestURL encoding:NSUTF8StringEncoding error:nil];       //get XML from unshortme. should be done asynchronously?
     if (!USMResponse) {
@@ -279,39 +285,71 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
 %hook TweetieTweetViewController
 - (BOOL)webView:(id)webView shouldStartLoadWithRequest:(id)request navigationType:(unsigned int)navigationType {
     
+    if (!lastUsedTweetViewController || !lastUsedTwitterStatus) {                            
+        NSLog(@"controller/status was nil, returing %orig");
+        return %orig;
+    }
+    
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
     NSURL *linkURL = [request URL];
     if ([[[linkURL description] substringToIndex:7] isEqualToString:@"http://"]) { //a non-internal link has been clicked
         
-        NSLog(@"link clicked: %@", [linkURL description]);
-        
-        NSString *TwitLongerLink = nil;
-        
-        if (TwitLongerLink = isLinkTwitLonger([linkURL description])) {
+        int networkStatus = (int) [[%c(ABReachability) sharedReachability] currentReachabilityStatus];
+        switch (networkStatus) {
+            case 0: {
+                NSLog(@"no internet connection detected");
+                UIAlertView *internetWarning = [[UIAlertView alloc] initWithTitle:@"No Internet Connection Available" 
+                                                                          message:@"Could not load link" 
+                                                                         delegate:nil 
+                                                                cancelButtonTitle:@"Okay" 
+                                                                otherButtonTitles:nil];
+                [internetWarning show];
+                [internetWarning autorelease];
+                return NO;
+                break;
+            }
             
-            NSLog(@"inside the twitlonger if block");
-            NSString *statusHTML = nil;
-            NSURL *TwitLongerURL = [[NSURL alloc] initWithString:TwitLongerLink];
-            NSString *TwitLongerResponse = [[NSString alloc] initWithContentsOfURL:TwitLongerURL];
-            statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
-            statusHTML = [parseStatusHTML(statusHTML) retain];
-            [nextExpandedText release];
-            nextExpandedText = [statusHTML retain];
+            case 1: {
+                NSLog(@"link clicked: %@", [linkURL description]);
+                NSString *TwitLongerLink = nil;
+                
+                if (TwitLongerLink = isLinkTwitLonger([linkURL description])) {
+                    
+                    NSLog(@"inside the twitlonger if block, tl link is %@", TwitLongerLink);
+                    
+                    NSString *statusHTML = nil;
+                    NSURL *TwitLongerURL = [[NSURL alloc] initWithString:TwitLongerLink];
+                    NSLog(@"about to get response");
+                    NSString *TwitLongerResponse = [[NSString alloc] initWithContentsOfURL:TwitLongerURL];
+                    NSLog(@"got response %@", TwitLongerResponse);
+                    statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
+                    statusHTML = [parseStatusHTML(statusHTML) retain];
+                    [nextExpandedText release];
+                    nextExpandedText = [statusHTML retain];
+                    
+                    NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
+                    
+                    [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
+                    
+                    NSLog(@"function is still executing, its fine");
+                    
+                    [TwitLongerURL release];
+                    [TwitLongerResponse release];
+                    [pool drain];
+                    return NO;
+                    break;
+
+                }
+            }
             
-            NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
-            
-            [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
-            
-            NSLog(@"function is still executing, its fine");
-            
-            [TwitLongerURL release];
-            [TwitLongerResponse release];
-            [pool drain];
-            return NO;
+            case 2: {
+                NSLog(@"no wifi connection");
+                return %orig;
+                break;
+            }
         }
     }
-
     else {
         NSLog(@"tweet clicked");
     }
@@ -332,15 +370,15 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
         
         NSLog(@"changing TweetViewController from %@ to %@", [lastUsedTweetViewController description], [self description]);
         if (lastUsedTweetViewController !=nil) {
-            [lastUsedTweetViewController release];//crashes here?
+            [lastUsedTweetViewController release];
         }
-        lastUsedTweetViewController = [self retain];//or here?
+        lastUsedTweetViewController = [self retain];
         NSLog(@"new controller retained");
     }
-    if (![self isKindOfClass:[%c(TweetieUserRecentsViewController) class]])
+    if ([self isKindOfClass:[%c(TweetieUserRecentsViewController) class]])
         NSLog(@"self is a user controller, skipping");
-    if (lastUsedTwitterStatus != statusToSet) { //or in this block
-        NSLog(@"changing TwitterStatus to %@", [statusToSet description]);
+    if (lastUsedTwitterStatus != statusToSet) { 
+        NSLog(@"changing TwitterStatus to %@, animated is %d", [statusToSet description], isAnimated);
         if (lastUsedTwitterStatus != nil) [lastUsedTwitterStatus release];
         lastUsedTwitterStatus = [statusToSet retain];
     }
@@ -362,7 +400,7 @@ id isLinkTwitLonger(NSString *shortURL) { //should be a method instead?
         NSLog(@"reading from nextExpandedText");
         NSLog(@"been called %d times", timesCalled);
         overrideEntities = YES;
-        if (timesCalled == 2) {                   // perhaps change this back to 3?
+        if (timesCalled == 2) {                   
             timesCalled = 1;
             NSString *temp = [nextExpandedText retain];
             [nextExpandedText release];
