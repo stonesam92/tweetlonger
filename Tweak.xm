@@ -1,7 +1,7 @@
 /*-------------------------------------------------------------------------------------------------------------------------- 
  TweetLonger by Sam Stone, created 08/2011. All rights reserved.
  
- Expands TwitLonger (also deck.ly soon) links in-line rather than opening up a browser 
+ Expands TwitLonger (a̶l̶s̶o̶ ̶d̶e̶c̶k̶.̶l̶y̶ ̶s̶o̶o̶n̶ edit: I guess not, as of 15/09/11 deck.ly is dicontinued) links in-line rather than opening up a browser 
  window and wasting data and time loading the images, ads etc.
  
  builds with theos. (obviously)
@@ -13,6 +13,7 @@
 
 #import     <Foundation/Foundation.h>
 #import     <UIKit/UIKit.h>
+#import     "ConnectionDelegate.h"
 #include    <stdio.h>
 #include    <string.h>
 
@@ -53,6 +54,7 @@ static id                   lastUsedTweetViewController = nil;
 static id                   lastUsedTwitterStatus       = nil;
 static BOOL                 lastUsedIsAnimated          = YES;
 static BOOL                 overrideEntities            = NO;
+
 
 #pragma mark Parsing Functions
 
@@ -255,16 +257,35 @@ NSString * parseResponse(NSString *response, responseType kind) { //takes a html
     return [parsedResponse autorelease];
 }
 
-id isLinkTwitLonger(NSString *shortURL) {
+id isLinkTwitLonger() {
+   /* 
+    NSURLRequest *USMRequest = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:UNSHORTME, shortURL]]
+                                             cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                         timeoutInterval:30.0];
     
-    NSURL *USMRequestURL = [[NSURL alloc] initWithString:[NSString stringWithFormat:UNSHORTME, shortURL]];                     //combines unshortme url with the given short url to expand
-    NSString *USMResponse = [[NSString alloc] initWithContentsOfURL:USMRequestURL encoding:NSUTF8StringEncoding error:nil];       //get XML from unshortme. should be done asynchronously?
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:USMRequest 
+                                                                  delegate:connectionDelegate];
+
+    NSLog(@"started connection %@ with request %@, delegate %@", connection, USMRequest, connectionDelegate);
+//    NSLog(@"current runloop is %@, main is %@, current mode is %@, main mode is %@", [NSRunLoop currentRunLoop], [NSRunLoop mainRunLoop], 
+//          [[NSRunLoop currentRunLoop] currentMode], [[NSRunLoop mainRunLoop] currentMode]);;
+    NSString *USMResponse = nil;
+    
+    while (![connectionDelegate isComplete] && [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
+        NSLog(@"connection does still exist? %@,  %@", connection, connectionDelegate);
+//        NSLog(@"inside this infinite loop.......");
+    }
+    NSLog(@"got out of infinite loop");
+    if (![connectionDelegate didFail]) {
+        USMResponse = [[NSString alloc] initWithData:[connectionDelegate receivedData] encoding:NSUTF8StringEncoding]; 
+    }
     if (!USMResponse) {
             
         NSLog(@"got no USM response, no connection");
         
         [USMResponse release];
-        [USMRequestURL release];
+        [connection release];
+        [USMRequest release];
         return nil;
     }
     
@@ -272,15 +293,21 @@ id isLinkTwitLonger(NSString *shortURL) {
     
     NSString *longURL = [parseResponse(USMResponse, USMRESPONSETYPE) retain];
     
-    [USMRequestURL release];
+    [USMRequest release];
     [USMResponse release];
-    
-    if (([longURL length] >= 30) && [[longURL substringToIndex:30] isEqualToString:@"http://www.twitlonger.com/show"]) { //check if it is a twitlonger link
+    [connection release];
+*/
+    id urlsArray = [[lastUsedTwitterStatus entities]  urls] ;
+    NSString *longURL = [[[urlsArray objectAtIndex:([urlsArray count]-1)] expandedURL] absoluteString];
+    NSLog(@"longURL is %@", longURL);
+    if ((([longURL length] >= 30) && [[longURL substringToIndex:30] isEqualToString:@"http://www.twitlonger.com/show"]) ||
+         (([longURL length] >= 13) &&[[longURL substringToIndex:13] isEqualToString:@"http://tl.gd/"])) { //check if it is a twitlonger link
+            
         NSLog(@"Tweetlonger link obtained: %@", longURL);
-        return [longURL autorelease];
+        return longURL;
     }
     
-    [longURL release];
+    //[longURL release];
     return nil;
 
 }
@@ -326,43 +353,6 @@ id isLinkTwitLonger(NSString *shortURL) {
                 break;
             }
             
-            case REACHABLEVIAWIFI: {
-                NSLog(@"link clicked: %@", [linkURL description]);
-                NSString *TwitLongerLink = nil;
-                
-                if (TwitLongerLink = isLinkTwitLonger([linkURL description])) {
-                    
-                    NSLog(@"inside the twitlonger if block, tl link is %@", TwitLongerLink);
-                    
-                    NSString *statusHTML = nil;
-                    NSURL *TwitLongerURL = [[NSURL alloc] initWithString:TwitLongerLink];
-                    NSLog(@"about to get response");
-                    NSString *TwitLongerResponse = [[NSString alloc] initWithContentsOfURL:TwitLongerURL];
-                    NSLog(@"got response %@", TwitLongerResponse);
-                    statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
-                    statusHTML = [parseStatusHTML(statusHTML) retain];
-                    nextExpandedText = [statusHTML retain];
-                    
-                    if (!cachedStatuses) {
-                        cachedStatuses = [[NSMutableDictionary alloc] initWithCapacity:1];
-                        NSLog(@"just made the cached dictionary");
-                    }
-                    [cachedStatuses setObject:nextExpandedText forKey:request];
-                    NSLog(@"dictionary of cached status is now %@", cachedStatuses);
-                    
-                    NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
-                    
-                    [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
-                    
-                    [TwitLongerURL release];
-                    [TwitLongerResponse release];
-                    [pool drain];
-                    return NO;
-                    break;
-
-                }
-            }
-            
             case REACHABLEVIAWWAN: {
                 NSLog(@"no wifi connection");
                 return %orig;
@@ -371,7 +361,45 @@ id isLinkTwitLonger(NSString *shortURL) {
                 // nsurlconnection. 
             }
         }
-    }
+        
+        NSLog(@"link clicked: %@", [linkURL description]);
+        NSString *TwitLongerLink = nil;
+        
+        if (TwitLongerLink = isLinkTwitLonger()) {
+            ConnectionDelegate *connectionDelegate = [[ConnectionDelegate alloc] init];
+            
+            NSLog(@"inside the twitlonger if block, tl link is %@", TwitLongerLink);
+            
+            NSString *statusHTML = nil;
+            NSURL *TwitLongerURL = [[NSURL alloc] initWithString:TwitLongerLink];
+            NSLog(@"about to get response");
+            NSString *TwitLongerResponse = [[NSString alloc] initWithContentsOfURL:TwitLongerURL];
+            NSLog(@"got response %@", TwitLongerResponse);
+            statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
+            statusHTML = [parseStatusHTML(statusHTML) retain];
+            nextExpandedText = [statusHTML retain];
+            
+            if (!cachedStatuses) {
+                cachedStatuses = [[NSMutableDictionary alloc] initWithCapacity:1];
+                NSLog(@"just made the cached dictionary");
+            }
+            [cachedStatuses setObject:nextExpandedText forKey:request];
+            NSLog(@"dictionary of cached status is now %@", cachedStatuses);
+            
+            NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
+            
+            [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
+            
+            [TwitLongerURL release];
+            [TwitLongerResponse release];
+            [pool drain];
+            return NO;
+        }
+        else {
+            NSLog(@"non-tl link clicked");
+        }
+    }    
+            
     else {
         NSLog(@"tweet clicked");
     }
@@ -414,7 +442,7 @@ id isLinkTwitLonger(NSString *shortURL) {
 
 - (NSString *)displayText {
     static int timesCalled = 1;
-    NSLog(@"inside custom displayText");
+//    NSLog(@"inside custom displayText");
     if (!nextExpandedText) {
         return %orig;
     }
@@ -438,7 +466,7 @@ id isLinkTwitLonger(NSString *shortURL) {
 }
 
 - (NSArray *)displayTextRanges {
-    NSLog(@"inside custom displayTextRanges");
+//    NSLog(@"inside custom displayTextRanges");
     if (!overrideEntities)
         return %orig;
     overrideEntities = NO;
