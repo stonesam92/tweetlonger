@@ -6,6 +6,6 @@ include theos/makefiles/common.mk
 
 TWEAK_NAME = TweetLonger
 TweetLonger_FILES = Tweak.xm
-TweetLonger_FRAMEWORKS = Foundation UIKit 
+TweetLonger_FRAMEWORKS = Foundation UIKit QuartzCore CoreGraphics
 
 include $(THEOS_MAKE_PATH)/tweak.mk
