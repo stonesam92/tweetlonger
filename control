@@ -1,9 +1,9 @@
 Package: com.samstone.tweetlonger
 Name: TweetLonger
 Depends: mobilesubstrate
-Version: 0.0.1
+Version: 1.0
 Architecture: iphoneos-arm
-Description: Expands Twitlonger Tweets inline!
+Description: Restores the ability of the official iOS Twitter client to expand Twitlonger links inline rather that opening a webView, wasting data and time loading ads, images, etc only to display the tweet in an extremely unsightly manner.
 Maintainer: Sam Stone
 Author: Sam Stone
 Section: Tweaks

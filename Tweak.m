@@ -258,47 +258,13 @@ NSString * parseResponse(NSString *response, responseType kind) { //takes a html
 }
 
 id isLinkTwitLonger() {
-   /* 
-    NSURLRequest *USMRequest = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:UNSHORTME, shortURL]]
-                                             cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                         timeoutInterval:30.0];
-    
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:USMRequest 
-                                                                  delegate:connectionDelegate];
 
-    NSLog(@"started connection %@ with request %@, delegate %@", connection, USMRequest, connectionDelegate);
-//    NSLog(@"current runloop is %@, main is %@, current mode is %@, main mode is %@", [NSRunLoop currentRunLoop], [NSRunLoop mainRunLoop], 
-//          [[NSRunLoop currentRunLoop] currentMode], [[NSRunLoop mainRunLoop] currentMode]);;
-    NSString *USMResponse = nil;
-    
-    while (![connectionDelegate isComplete] && [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
-        NSLog(@"connection does still exist? %@,  %@", connection, connectionDelegate);
-//        NSLog(@"inside this infinite loop.......");
+    id urlsArray = [[lastUsedTwitterStatus entities]  urls];
+    id entity = [[urlsArray objectAtIndex:([urlsArray count]-1)] expandedURL];
+    if (!entity) {
+        entity = [[urlsArray objectAtIndex:([urlsArray count]-1)] url]; //for some reason the entity has (null) for expandedURL and displayURL
     }
-    NSLog(@"got out of infinite loop");
-    if (![connectionDelegate didFail]) {
-        USMResponse = [[NSString alloc] initWithData:[connectionDelegate receivedData] encoding:NSUTF8StringEncoding]; 
-    }
-    if (!USMResponse) {
-            
-        NSLog(@"got no USM response, no connection");
-        
-        [USMResponse release];
-        [connection release];
-        [USMRequest release];
-        return nil;
-    }
-    
-    NSLog(@"got USM response: %@", USMResponse);
-    
-    NSString *longURL = [parseResponse(USMResponse, USMRESPONSETYPE) retain];
-    
-    [USMRequest release];
-    [USMResponse release];
-    [connection release];
-*/
-    id urlsArray = [[lastUsedTwitterStatus entities]  urls] ;
-    NSString *longURL = [[[urlsArray objectAtIndex:([urlsArray count]-1)] expandedURL] absoluteString];
+    NSString *longURL = [entity absoluteString];
     NSLog(@"longURL is %@", longURL);
     if ((([longURL length] >= 30) && [[longURL substringToIndex:30] isEqualToString:@"http://www.twitlonger.com/show"]) ||
          (([longURL length] >= 13) &&[[longURL substringToIndex:13] isEqualToString:@"http://tl.gd/"])) { //check if it is a twitlonger link
@@ -362,23 +328,53 @@ id isLinkTwitLonger() {
                     
                 case REACHABLEVIAWWAN: {
                     NSLog(@"no wifi connection");
-                    return %orig;
                     break;
                     //should set up the loading view here
                     //                
                 }
             }
+            
             ConnectionDelegate *connectionDelegate = [[ConnectionDelegate alloc] init];
             
             NSLog(@"inside the twitlonger if block, tl link is %@", TwitLongerLink);
             
             NSString *statusHTML = nil;
-            NSURLR *TwitLongerURL = [[NSURL alloc] initWithString:TwitLongerLink];
-            NSLog(@"about to get response");
-            NSString *TwitLongerResponse = [[NSString alloc] initWithContentsOfURL:TwitLongerURL];
+            NSURLRequest *TwitLongerURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:TwitLongerLink]
+                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                              timeoutInterval:15.0];
+            NSURLConnection *connection = [NSURLConnection connectionWithRequest:TwitLongerURLRequest delegate:connectionDelegate];
+            if (!connection) {
+                NSLog(@"connection failed");
+                UIAlertView *internetWarning = [[UIAlertView alloc] initWithTitle:@"No Internet Connection Available" 
+                                                                          message:@"Could not load link" 
+                                                                         delegate:nil 
+                                                                cancelButtonTitle:@"Okay" 
+                                                                otherButtonTitles:nil];
+                [internetWarning show];
+                [pool drain];
+                [internetWarning autorelease];
+                return NO;
+            }
+             while (![connectionDelegate isComplete] && 
+                    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
+                 NSLog(@"waiting for connection to finish");
+             }
+            if ([connectionDelegate didFail]) {
+                NSLog(@"connection failedm didFail flag was set");
+                UIAlertView *internetWarning = [[UIAlertView alloc] initWithTitle:@"No Internet Connection Available" 
+                                                                          message:@"Could not load link" 
+                                                                         delegate:nil 
+                                                                cancelButtonTitle:@"Okay" 
+                                                                otherButtonTitles:nil];
+                [internetWarning show];
+                [pool drain];
+                [internetWarning autorelease];
+                return NO;
+            }
+            NSString *TwitLongerResponse = [[NSString alloc] initWithData:[connectionDelegate receivedData] encoding:NSUTF8StringEncoding];
             NSLog(@"got response %@", TwitLongerResponse);
             statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
-            statusHTML = [parseStatusHTML(statusHTML) retain];
+            statusHTML = parseStatusHTML(statusHTML);
             nextExpandedText = [statusHTML retain];
             
             if (!cachedStatuses) {
@@ -391,8 +387,6 @@ id isLinkTwitLonger() {
             NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
             
             [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
-            
-            [TwitLongerURL release];
             [TwitLongerResponse release];
             [pool drain];
             return NO;
