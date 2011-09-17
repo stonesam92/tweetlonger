@@ -13,6 +13,7 @@
 
 #import     <Foundation/Foundation.h>
 #import     <UIKit/UIKit.h>
+#import     <QuartzCore/QuartzCore.h>
 #import     "ConnectionDelegate.h"
 #include    <stdio.h>
 #include    <string.h>
@@ -307,7 +308,7 @@ id isLinkTwitLonger() {
         
         NSLog(@"link clicked: %@", [linkURL description]);
         NSString *TwitLongerLink = nil;
-        
+        UIView *_hudView = nil;
         if (TwitLongerLink = isLinkTwitLonger()) {
             
             int networkStatus = (int) [[%c(ABReachability) sharedReachability] currentReachabilityStatus];
@@ -328,6 +329,25 @@ id isLinkTwitLonger() {
                     
                 case REACHABLEVIAWWAN: {
                     NSLog(@"no wifi connection");
+                    _hudView = [[UIView alloc] initWithFrame:CGRectMake(75, 155, 170, 170)];
+                    _hudView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+                    _hudView.clipsToBounds = YES;
+                    _hudView.layer.cornerRadius = 10.0;
+                    
+                    UIActivityIndicatorView *_activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+                    _activityIndicatorView.frame = CGRectMake(65, 40, _activityIndicatorView.bounds.size.width, _activityIndicatorView.bounds.size.height);
+                    [_hudView addSubview:_activityIndicatorView];
+                    [_activityIndicatorView startAnimating];
+                    
+                    UILabel *_captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 115, 130, 22)];
+                    _captionLabel.backgroundColor = [UIColor clearColor];
+                    _captionLabel.textColor = [UIColor whiteColor];
+                    _captionLabel.adjustsFontSizeToFitWidth = YES;
+                    _captionLabel.textAlignment = UITextAlignmentCenter;
+                    _captionLabel.text = @"Loading...";
+                    [_hudView addSubview:_captionLabel];
+                    
+                    [[[UIApplication sharedApplication] keyWindow] addSubview:_hudView];
                     break;
                     //should set up the loading view here
                     //                
@@ -385,7 +405,8 @@ id isLinkTwitLonger() {
             NSLog(@"dictionary of cached status is now %@", cachedStatuses);
             
             NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
-            
+            [_hudView removeFromSuperview];
+            [_hudView release];
             [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
             [TwitLongerResponse release];
             [pool drain];
