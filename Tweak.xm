@@ -67,14 +67,12 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     
     locationOfUN = strstr(toParse, USERNAMEUNIQUESTRING);
     if (!locationOfUN) {
-        NSLog(@"about to free");
         free(entityItem);
-        NSLog(@"freed");
         return lastItem;
     }
     
     sscanf(locationOfUN, USERNAMESCANSTRING, parsedOutput);
-    NSLog(@"parsed username: %s", parsedOutput);
+//    NSLog(@"parsed username: %s", parsedOutput);
     
     lengthOfUN = strlen(parsedOutput);
     locationOfUN = locationOfUN - (29+(lengthOfUN));
@@ -99,17 +97,15 @@ entityInfo * parseHashtags(char *toParse, entityInfo *lastItem, entityInfo *enti
     int lengthOfHT;
     
     locationOfHT = strstr(toParse, HASHTAGUNIQUESTRING);
-    NSLog(@"location of hashtag is %s, toParse is %s", locationOfHT, toParse);
+//    NSLog(@"location of hashtag is %s, toParse is %s", locationOfHT, toParse);
     if (!locationOfHT) {
         
-        NSLog(@"about to free");
         free(entityItem);
-        NSLog(@"freed");
         return lastItem;
     }
     
     sscanf(locationOfHT, HASHTAGSCANSTRING, parsedOutput+1); // parsedOutput+1 so the '#' already in the buffer isn't overwritten
-    NSLog(@"parsed hashtag: %s", parsedOutput);
+//    NSLog(@"parsed hashtag: %s", parsedOutput);
     
     lengthOfHT = strlen(parsedOutput);
     entityItem->location = (locationOfHT + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
@@ -133,17 +129,15 @@ entityInfo * parseLinks(char *toParse, entityInfo *lastItem, entityInfo *entityI
     int lengthOfURL;
     
     locationOfURL = strstr(toParse, LINKUNIQUESTRING);
-    NSLog(@"location of link is %s, toparse is %s", locationOfURL, toParse);
+//    NSLog(@"location of link is %s, toparse is %s", locationOfURL, toParse);
     if (!locationOfURL) {
         
-        NSLog(@"about to free");
         free(entityItem);
-        NSLog(@"freed");
         return lastItem;
     }
     
     sscanf(locationOfURL, LINKSCANSTRING, parsedOutput); 
-    NSLog(@"parsed link: %s", parsedOutput);
+//    NSLog(@"parsed link: %s", parsedOutput);
     
     lengthOfURL = strlen(parsedOutput);
     entityItem->location = (locationOfURL + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
@@ -164,23 +158,21 @@ void writeChangesToStatus(char *status, entityInfo *entityList) {
 
     int s1offset = 0, s2offset = 0;
     while (entityList != NULL) {
-        NSLog(@"about to replace from index %d to %d with %s", entityList->location, entityList->length, entityList->replacementString);
+//        NSLog(@"about to replace from index %d to %d with %s", entityList->location, entityList->length, entityList->replacementString);
         int i, j;                   //counters for the two for loops coming up
         for (i=0; i + s2offset < entityList->location; i++) {
             *(status+i+s1offset) = *(status + s2offset + i);
         }
-        NSLog(@"about to enter second loop, i is at %d", i);
+//        NSLog(@"about to enter second loop, i is at %d", i);
         for (j=0; j < strlen(entityList->replacementString); j++) {
-            NSLog(@"inside the second loop, j is at %d, replacement is still %s, char on this loop is %c", j, entityList->replacementString, *((entityList->replacementString) + j));
+//            NSLog(@"inside the second loop, j is at %d, replacement is still %s, char on this loop is %c", j, entityList->replacementString, *((entityList->replacementString) + j));
             *(status+i+j+s1offset) = *((entityList->replacementString) + j);
         }
-        NSLog(@"status is now set to %s, i is %d, j is %d", status, i, j);
+//        NSLog(@"status is now set to %s, i is %d, j is %d", status, i, j);
         s1offset += i + j;
         s2offset += i + entityList->length;
         entityInfo *temp = entityList->next;
-        NSLog(@"about to free the alloc'd thing");
         free(entityList);
-        NSLog(@"freed the second thing");
         entityList = temp;
     }
     int i=0;
@@ -249,11 +241,11 @@ NSString * parseResponse(NSString *response, responseType kind) { //takes a html
     NSRange starttag = [response rangeOfString:startString], endtag = [response rangeOfString:endString];
     NSRange urlrange = {(starttag.location + starttag.length), (endtag.location - (starttag.location + starttag.length))};  //obtain the range of the resolved url
     
-    NSLog(@"got here, with response %@ and range:{%d,%d}", response, urlrange.location, urlrange.length);
+//    NSLog(@"got here, with response %@ and range:{%d,%d}", response, urlrange.location, urlrange.length);
     
     NSString *parsedResponse = [[NSString alloc] initWithString:[response substringWithRange:urlrange]];                    
     
-    NSLog(@"PARSED %d RESPONSE OBTAINED: %@, has %i references", kind, parsedResponse, [parsedResponse retainCount]);
+//    NSLog(@"PARSED %d RESPONSE OBTAINED: %@, has %i references", kind, parsedResponse, [parsedResponse retainCount]);
     
     return [parsedResponse autorelease];
 }
@@ -266,7 +258,6 @@ id isLinkTwitLonger() {
         entity = [[urlsArray objectAtIndex:([urlsArray count]-1)] url]; //for some reason the entity has (null) for expandedURL and displayURL
     }
     NSString *longURL = [entity absoluteString];
-    NSLog(@"longURL is %@", longURL);
     if ((([longURL length] >= 30) && [[longURL substringToIndex:30] isEqualToString:@"http://www.twitlonger.com/show"]) ||
          (([longURL length] >= 13) &&[[longURL substringToIndex:13] isEqualToString:@"http://tl.gd/"])) { //check if it is a twitlonger link
             
@@ -274,7 +265,6 @@ id isLinkTwitLonger() {
         return longURL;
     }
     
-    //[longURL release];
     return nil;
 
 }
@@ -344,8 +334,10 @@ id isLinkTwitLonger() {
                     _captionLabel.textColor = [UIColor whiteColor];
                     _captionLabel.adjustsFontSizeToFitWidth = YES;
                     _captionLabel.textAlignment = UITextAlignmentCenter;
-                    _captionLabel.text = @"Loading...";
+                    _captionLabel.text = @"Loading Tweet...";
                     [_hudView addSubview:_captionLabel];
+                    [_captionLabel autorelease];
+                    [_activityIndicatorView autorelease];
                     
                     [[[UIApplication sharedApplication] keyWindow] addSubview:_hudView];
                     break;
@@ -371,6 +363,8 @@ id isLinkTwitLonger() {
                                                                 cancelButtonTitle:@"Okay" 
                                                                 otherButtonTitles:nil];
                 [internetWarning show];
+                [_hudView removeFromSuperview];
+                [_hudView release];
                 [pool drain];
                 [internetWarning autorelease];
                 return NO;
@@ -387,6 +381,8 @@ id isLinkTwitLonger() {
                                                                 cancelButtonTitle:@"Okay" 
                                                                 otherButtonTitles:nil];
                 [internetWarning show];
+                [_hudView removeFromSuperview];
+                [_hudView release];
                 [pool drain];
                 [internetWarning autorelease];
                 return NO;
@@ -458,14 +454,14 @@ id isLinkTwitLonger() {
 %hook TwitterStatus
 
 - (NSString *)displayText {
+    
     static int timesCalled = 1;
-//    NSLog(@"inside custom displayText");
     if (!nextExpandedText) {
         return %orig;
     }
     else {
-        NSLog(@"reading from nextExpandedText");
-        NSLog(@"been called %d times", timesCalled);
+//        NSLog(@"reading from nextExpandedText");
+//        NSLog(@"been called %d times", timesCalled);
         overrideEntities = YES;
         if (timesCalled == 2) {                   
             timesCalled = 1;
