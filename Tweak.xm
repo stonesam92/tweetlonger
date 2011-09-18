@@ -1,13 +1,10 @@
 /*-------------------------------------------------------------------------------------------------------------------------- 
- 
  TweetLonger by Sam Stone
  
  Expands TwitLonger (a̶l̶s̶o̶ ̶d̶e̶c̶k̶.̶l̶y̶ ̶s̶o̶o̶n̶ edit: I guess not, as of 15/09/11 deck.ly is dicontinued) links in-line rather than 
  opening up a browser window and wasting data and time loading the images, ads etc.
  
 --------------------------------------------------------------------------------------------------------------------------*/
-
-
 
 
 #import     <Foundation/Foundation.h>
@@ -364,13 +361,18 @@ id isLinkTwitLonger() {
     }
     
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-
+    NSLog(@"about to generate linkURL");
     NSURL *linkURL = [request URL];
+    NSLog(@"did generate linkURL");
     if ([[[linkURL description] substringToIndex:7] isEqualToString:@"http://"]) { //a non-internal link has been clicked
+        NSLog(@"inside non-internal link block now");
         
         [nextExpandedText release];
+        NSLog(@"released old nextExpandedText");
         
         if (nextExpandedText = [cachedStatuses objectForKey:request]) {
+            [nextExpandedText retain];
+            NSLog(@"inside cached status block");
             NSLog(@"status is already cached: %@, dict looks like this %@", nextExpandedText, cachedStatuses);
             [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
             [pool drain];
@@ -378,7 +380,7 @@ id isLinkTwitLonger() {
         }
         
         
-        
+        NSLog(@"about to log link clicked");
         NSLog(@"link clicked: %@", [linkURL description]);
         NSString *TwitLongerLink = nil;
         UIView *_hudView = nil;
@@ -471,6 +473,7 @@ id isLinkTwitLonger() {
                 return NO;
             }
             NSString *TwitLongerResponse = [[NSString alloc] initWithData:[connectionDelegate receivedData] encoding:NSUTF8StringEncoding];
+            NSLog(@"will log response");
             NSLog(@"got response %@", TwitLongerResponse);
             statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
             
@@ -485,6 +488,7 @@ id isLinkTwitLonger() {
             NSLog(@"about to add to dictionary");
             NSLog(@"adding status %@ to dictionary", nextExpandedText);
             [cachedStatuses setObject:nextExpandedText forKey:request];
+            NSLog(@"added to dictionary");
             NSLog(@"dictionary of cached status is now %@", cachedStatuses);
             
             NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
