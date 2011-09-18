@@ -264,8 +264,90 @@ id isLinkTwitLonger() {
         NSLog(@"Tweetlonger link obtained: %@", longURL);
         return longURL;
     }
-    
-    return nil;
+    else if (([longURL length] >= 12) && ([[longURL substringToIndex:12] isEqualToString:@"http://t.co/"])) {
+        
+        UIView *hudView = [[UIView alloc] initWithFrame:CGRectMake(75, 155, 170, 170)];
+        hudView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        hudView.clipsToBounds = YES;
+        hudView.layer.cornerRadius = 10.0;
+        
+        UIActivityIndicatorView *_activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _activityIndicatorView.frame = CGRectMake(65, 40, _activityIndicatorView.bounds.size.width, _activityIndicatorView.bounds.size.height);
+        [hudView addSubview:_activityIndicatorView];
+        [_activityIndicatorView startAnimating];
+        
+        UILabel *_captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 115, 130, 22)];
+        _captionLabel.backgroundColor = [UIColor clearColor];
+        _captionLabel.textColor = [UIColor whiteColor];
+        _captionLabel.adjustsFontSizeToFitWidth = YES;
+        _captionLabel.textAlignment = UITextAlignmentCenter;
+        _captionLabel.text = @"Detecting link type...";
+        [hudView addSubview:_captionLabel];
+        [_captionLabel autorelease];
+        [_activityIndicatorView autorelease];
+        
+        [[[UIApplication sharedApplication] keyWindow] addSubview:hudView];
+//        all code for checking the url by unshortme goes in here
+        ConnectionDelegate *connectionDelegate = [[ConnectionDelegate alloc] init];
+        NSURLRequest *USMRequest = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:UNSHORTME, longURL]]
+                                                        cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                    timeoutInterval:15.0];
+        
+        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:USMRequest 
+                                                                      delegate:connectionDelegate];
+        
+        NSLog(@"started connection %@ with request %@, delegate %@", connection, USMRequest, connectionDelegate);
+        //    NSLog(@"current runloop is %@, main is %@, current mode is %@, main mode is %@", [NSRunLoop currentRunLoop], [NSRunLoop mainRunLoop], 
+        //          [[NSRunLoop currentRunLoop] currentMode], [[NSRunLoop mainRunLoop] currentMode]);;
+        NSString *USMResponse = nil;
+        
+        while (![connectionDelegate isComplete] && [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
+//            NSLog(@"connection does still exist? %@,  %@", connection, connectionDelegate);
+            //        NSLog(@"inside this infinite loop.......");
+        }
+//        NSLog(@"got out of infinite loop");
+        if (![connectionDelegate didFail]) {
+            USMResponse = [[NSString alloc] initWithData:[connectionDelegate receivedData] encoding:NSUTF8StringEncoding]; 
+        }
+        if (!USMResponse) {
+            
+            NSLog(@"got no USM response, no connection");
+            
+            [USMResponse release];
+            [connection release];
+            [USMRequest release];
+            [hudView removeFromSuperview];
+            [hudView release];
+            [connectionDelegate release];
+            UIAlertView *internetWarning = [[UIAlertView alloc] initWithTitle:@"No Internet Connection Available" 
+                                                                      message:@"Could not detect link type" 
+                                                                     delegate:nil 
+                                                            cancelButtonTitle:@"Okay" 
+                                                            otherButtonTitles:nil];
+            [internetWarning show];
+            [internetWarning autorelease];
+            return nil;
+        }
+        
+        NSLog(@"got USM response: %@", USMResponse);
+        
+        longURL = parseResponse(USMResponse, USMRESPONSETYPE);
+        
+        [USMRequest release];
+        [USMResponse release];
+        [connection release];
+        [hudView removeFromSuperview];
+        [hudView release];
+        [connectionDelegate release];
+        
+        if (([longURL length] >= 30) && [[longURL substringToIndex:30] isEqualToString:@"http://www.twitlonger.com/show"]) {
+            return longURL;
+        }
+        
+        else return nil;
+
+    }
+    else return nil;
 
 }
     
@@ -274,6 +356,7 @@ id isLinkTwitLonger() {
 
 %hook TweetieTweetViewController
 - (BOOL)webView:(id)webView shouldStartLoadWithRequest:(id)request navigationType:(unsigned int)navigationType {
+    NSLog(@"started hooking with request %@", request);
     
     if (!lastUsedTweetViewController || !lastUsedTwitterStatus) {                            
         NSLog(@"controller/status was nil, returing %orig");
@@ -288,7 +371,7 @@ id isLinkTwitLonger() {
         [nextExpandedText release];
         
         if (nextExpandedText = [cachedStatuses objectForKey:request]) {
-            NSLog(@"status is already cached: %@", nextExpandedText);
+            NSLog(@"status is already cached: %@, dict looks like this %@", nextExpandedText, cachedStatuses);
             [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
             [pool drain];
             return NO;
@@ -348,7 +431,7 @@ id isLinkTwitLonger() {
             
             ConnectionDelegate *connectionDelegate = [[ConnectionDelegate alloc] init];
             
-            NSLog(@"inside the twitlonger if block, tl link is %@", TwitLongerLink);
+//            NSLog(@"inside the twitlonger if block, tl link is %@", TwitLongerLink);
             
             NSString *statusHTML = nil;
             NSURLRequest *TwitLongerURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:TwitLongerLink]
@@ -371,7 +454,7 @@ id isLinkTwitLonger() {
             }
              while (![connectionDelegate isComplete] && 
                     [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
-                 NSLog(@"waiting for connection to finish");
+//                 NSLog(@"waiting for connection to finish");
              }
             if ([connectionDelegate didFail]) {
                 NSLog(@"connection failedm didFail flag was set");
