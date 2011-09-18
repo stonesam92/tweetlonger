@@ -1,0 +1,3 @@
+Makes the official Twitter iOS app work more like it used to in regards to TwitLonger links. 
+
+Rather than open a webView and loading the mobile version of the site it shows the tweet the in the same layout as any normal tweet which is not ony prettier, but faster too since no time is wasted loading ads and images.

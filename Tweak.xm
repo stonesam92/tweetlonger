@@ -1,10 +1,9 @@
 /*-------------------------------------------------------------------------------------------------------------------------- 
- TweetLonger by Sam Stone, created 08/2011. All rights reserved.
  
- Expands TwitLonger (a̶l̶s̶o̶ ̶d̶e̶c̶k̶.̶l̶y̶ ̶s̶o̶o̶n̶ edit: I guess not, as of 15/09/11 deck.ly is dicontinued) links in-line rather than opening up a browser 
- window and wasting data and time loading the images, ads etc.
+ TweetLonger by Sam Stone
  
- builds with theos. (obviously)
+ Expands TwitLonger (a̶l̶s̶o̶ ̶d̶e̶c̶k̶.̶l̶y̶ ̶s̶o̶o̶n̶ edit: I guess not, as of 15/09/11 deck.ly is dicontinued) links in-line rather than 
+ opening up a browser window and wasting data and time loading the images, ads etc.
  
 --------------------------------------------------------------------------------------------------------------------------*/
 
