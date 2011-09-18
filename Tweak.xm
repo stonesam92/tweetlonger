@@ -72,7 +72,7 @@ entityInfo * parseUserNames(char *toParse, entityInfo *lastItem, entityInfo *ent
     }
     
     sscanf(locationOfUN, USERNAMESCANSTRING, parsedOutput);
-//    NSLog(@"parsed username: %s", parsedOutput);
+    NSLog(@"parsed username: %s", parsedOutput);
     
     lengthOfUN = strlen(parsedOutput);
     locationOfUN = locationOfUN - (29+(lengthOfUN));
@@ -129,7 +129,7 @@ entityInfo * parseLinks(char *toParse, entityInfo *lastItem, entityInfo *entityI
     int lengthOfURL;
     
     locationOfURL = strstr(toParse, LINKUNIQUESTRING);
-//    NSLog(@"location of link is %s, toparse is %s", locationOfURL, toParse);
+    NSLog(@"location of link is %s, toparse is %s", locationOfURL, toParse);
     if (!locationOfURL) {
         
         free(entityItem);
@@ -137,7 +137,7 @@ entityInfo * parseLinks(char *toParse, entityInfo *lastItem, entityInfo *entityI
     }
     
     sscanf(locationOfURL, LINKSCANSTRING, parsedOutput); 
-//    NSLog(@"parsed link: %s", parsedOutput);
+    NSLog(@"parsed link: %s", parsedOutput);
     
     lengthOfURL = strlen(parsedOutput);
     entityItem->location = (locationOfURL + searchedSoFar - toParse); //the difference between the two pointers is how many chars into the status it is
@@ -194,7 +194,7 @@ NSString * parseStatusHTML(NSString * input) {
     /*
      Needs to be change to only make a max of 2 passes of writeChanges by changing hashtag func
      */
-    
+    NSLog(@"starting parseStatus with input %@", input);
     entityInfo *entitiesList, *endOfTail;
     char *toParse = (char*) [input UTF8String];
     
@@ -219,6 +219,7 @@ NSString * parseStatusHTML(NSString * input) {
         writeChangesToStatus(toParse, entitiesList);
     }
     NSLog(@"wrote links back to status");
+    NSLog(@"status parsed, is %s", toParse);
     
     return [NSString stringWithUTF8String:toParse];
     
@@ -473,13 +474,17 @@ id isLinkTwitLonger() {
             NSString *TwitLongerResponse = [[NSString alloc] initWithData:[connectionDelegate receivedData] encoding:NSUTF8StringEncoding];
             NSLog(@"got response %@", TwitLongerResponse);
             statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
-            statusHTML = parseStatusHTML(statusHTML);
+            
+            statusHTML = [parseStatusHTML(statusHTML) retain];
+            NSLog(@"got out of parseStatus");
             nextExpandedText = [statusHTML retain];
             
             if (!cachedStatuses) {
                 cachedStatuses = [[NSMutableDictionary alloc] initWithCapacity:1];
                 NSLog(@"just made the cached dictionary");
             }
+            NSLog(@"about to add to dictionary");
+            NSLog(@"adding status %@ to dictionary", nextExpandedText);
             [cachedStatuses setObject:nextExpandedText forKey:request];
             NSLog(@"dictionary of cached status is now %@", cachedStatuses);
             
@@ -488,7 +493,9 @@ id isLinkTwitLonger() {
             [_hudView release];
             [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
             [TwitLongerResponse release];
+            [statusHTML release];
             [pool drain];
+            NSLog(@"returning from hooked func now");
             return NO;
         }
         else {
@@ -567,6 +574,17 @@ id isLinkTwitLonger() {
         return %orig;
     overrideEntities = NO;
     return [NSArray array];
+}
+
+%end
+
+%hook TwitterCommonAppDelegate
+
+- (void)applicationWillResignActive:(id)arg1 
+{
+    [cachedStatuses release];
+    cachedStatuses = nil;
+    %orig;
 }
 
 %end

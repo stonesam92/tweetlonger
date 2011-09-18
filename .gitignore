@@ -1,8 +1,8 @@
 *.deb
 theos
 obj/*
-layout/*
 .theos/
 .DS_Store
 _/
 maketweak
+Tweak.m
