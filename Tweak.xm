@@ -214,8 +214,8 @@ NSString * parseStatusHTML(NSString * input) {
         endOfTail->next = NULL;
         writeChangesToStatus(toParse, entitiesList);
     }
-    NSLog(@"wrote links back to status");
-    NSLog(@"status parsed, is %s", toParse);
+//    NSLog(@"wrote links back to status");
+//    NSLog(@"status parsed, is %s", toParse);
     
     return [NSString stringWithUTF8String:toParse];
     
@@ -293,7 +293,7 @@ id isLinkTwitLonger() {
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:USMRequest 
                                                                       delegate:connectionDelegate];
         
-        NSLog(@"started connection %@ with request %@, delegate %@", connection, USMRequest, connectionDelegate);
+//        NSLog(@"started connection %@ with request %@, delegate %@", connection, USMRequest, connectionDelegate);
         //    NSLog(@"current runloop is %@, main is %@, current mode is %@, main mode is %@", [NSRunLoop currentRunLoop], [NSRunLoop mainRunLoop], 
         //          [[NSRunLoop currentRunLoop] currentMode], [[NSRunLoop mainRunLoop] currentMode]);;
         NSString *USMResponse = nil;
@@ -353,7 +353,7 @@ id isLinkTwitLonger() {
 
 %hook TweetieTweetViewController
 - (BOOL)webView:(id)webView shouldStartLoadWithRequest:(id)request navigationType:(unsigned int)navigationType {
-    NSLog(@"started hooking with request %@", request);
+//    NSLog(@"started hooking with request %@", request);
     
     if (!lastUsedTweetViewController || !lastUsedTwitterStatus) {                            
         NSLog(@"controller/status was nil, returing %orig");
@@ -361,27 +361,27 @@ id isLinkTwitLonger() {
     }
     
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    NSLog(@"about to generate linkURL");
+//    NSLog(@"about to generate linkURL");
     NSURL *linkURL = [request URL];
-    NSLog(@"did generate linkURL");
+//    NSLog(@"did generate linkURL");
     if ([[[linkURL description] substringToIndex:7] isEqualToString:@"http://"]) { //a non-internal link has been clicked
-        NSLog(@"inside non-internal link block now");
+//        NSLog(@"inside non-internal link block now");
         
         [nextExpandedText release];
-        NSLog(@"released old nextExpandedText");
+//        NSLog(@"released old nextExpandedText");
         
         if (nextExpandedText = [cachedStatuses objectForKey:request]) {
             [nextExpandedText retain];
-            NSLog(@"inside cached status block");
-            NSLog(@"status is already cached: %@, dict looks like this %@", nextExpandedText, cachedStatuses);
+//            NSLog(@"inside cached status block");
+//            NSLog(@"status is already cached: %@, dict looks like this %@", nextExpandedText, cachedStatuses);
             [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
             [pool drain];
             return NO;
         }
         
         
-        NSLog(@"about to log link clicked");
-        NSLog(@"link clicked: %@", [linkURL description]);
+//        NSLog(@"about to log link clicked");
+//        NSLog(@"link clicked: %@", [linkURL description]);
         NSString *TwitLongerLink = nil;
         UIView *_hudView = nil;
         if (TwitLongerLink = isLinkTwitLonger()) {
@@ -473,25 +473,25 @@ id isLinkTwitLonger() {
                 return NO;
             }
             NSString *TwitLongerResponse = [[NSString alloc] initWithData:[connectionDelegate receivedData] encoding:NSUTF8StringEncoding];
-            NSLog(@"will log response");
-            NSLog(@"got response %@", TwitLongerResponse);
+//            NSLog(@"will log response");
+//            NSLog(@"got response %@", TwitLongerResponse);
             statusHTML = [parseResponse(TwitLongerResponse, TLRESPONSETYPE) stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
             
             statusHTML = [parseStatusHTML(statusHTML) retain];
-            NSLog(@"got out of parseStatus");
+//            NSLog(@"got out of parseStatus");
             nextExpandedText = [statusHTML retain];
             
             if (!cachedStatuses) {
                 cachedStatuses = [[NSMutableDictionary alloc] initWithCapacity:1];
                 NSLog(@"just made the cached dictionary");
             }
-            NSLog(@"about to add to dictionary");
-            NSLog(@"adding status %@ to dictionary", nextExpandedText);
+//            NSLog(@"about to add to dictionary");
+//            NSLog(@"adding status %@ to dictionary", nextExpandedText);
             [cachedStatuses setObject:nextExpandedText forKey:request];
-            NSLog(@"added to dictionary");
-            NSLog(@"dictionary of cached status is now %@", cachedStatuses);
-            
-            NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
+//            NSLog(@"added to dictionary");
+//            NSLog(@"dictionary of cached status is now %@", cachedStatuses);
+//            
+//            NSLog(@"nextExpandedText is now set to %@", nextExpandedText);
             [_hudView removeFromSuperview];
             [_hudView release];
             [lastUsedTweetViewController _navigateToStatus:lastUsedTwitterStatus animated:lastUsedIsAnimated];
